@@ -1,0 +1,277 @@
+﻿body
+{
+}
+
+.p-a
+{
+}
+
+    .p-a .col-sm-4
+    {
+        margin-bottom: 30px;
+    }
+
+    .p-a figure
+    {
+        border: solid 1px #ddd;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+        .p-a figure img
+        {
+            width: 100%;
+            border: none;
+        }
+
+        .p-a figure figcaption
+        {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+        }
+
+            .p-a figure figcaption h2
+            {
+                font-weight: bold;
+                font-size: 18px;
+                margin: 20px;
+            }
+
+            .p-a figure figcaption .tip
+            {
+                background-color: rgba(57, 73, 91, 0.8);
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 5px 10px;
+                -webkit-transition: -webkit-transform 0.35s;
+                transition: transform 0.35s;
+            }
+
+                .p-a figure figcaption .tip p
+                {
+                    color: #fff;
+                    margin: 0;
+                    line-height: 20px;
+                }
+
+        .p-a figure.effect-1
+        {
+        }
+
+            .p-a figure.effect-1 .tip
+            {
+                text-transform: none;
+                font-size: 90%;
+                opacity: 0;
+                -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+                transition: opacity 0.35s, transform 0.35s;
+                -webkit-transform: translate3d(0,50px,0);
+                transform: translate3d(0,50px,0);
+            }
+
+            .p-a figure.effect-1:hover .tip
+            {
+                opacity: 1;
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+
+.p-b
+{
+}
+
+    .p-b .col-sm-4
+    {
+        margin-bottom: 30px;
+    }
+
+    .p-b figure img
+    {
+        border: solid 1px #ddd;
+    }
+
+    .p-b figure figcaption
+    {
+    }
+
+        .p-b figure figcaption h2
+        {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .p-b figure figcaption .info
+        {
+            margin: 10px;
+            border-left: solid 2px #086aa8;
+            padding-left: 10px;
+        }
+
+        .p-b figure figcaption .tip p
+        {
+            margin: 0;
+            line-height: 20px;
+        }
+
+    .p-b figure:hover
+    {
+    }
+
+.p-c
+{
+}
+
+    .p-c .col-sm-4
+    {
+        margin-bottom: 30px;
+    }
+
+    .p-c figure
+    {
+        background-color: #eee;
+        padding: 10px;
+        transition: background-color 0.5s;
+        cursor: pointer;
+    }
+
+        .p-c figure img
+        {
+            width: 100%;
+            transition: opacity 0.5s ease;
+        }
+
+        .p-c figure figcaption h2
+        {
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.5s;
+        }
+
+        .p-c figure figcaption .tip p
+        {
+            margin: 0;
+            line-height: 20px;
+            transition: color 0.5s ease;
+        }
+
+        .p-c figure:hover
+        {
+            background-color: #016cba;
+        }
+
+            .p-c figure:hover figcaption h2, .p-c figure:hover figcaption .tip p
+            {
+                color: #fff;
+            }
+
+            .p-c figure:hover img
+            {
+                opacity: 0.6;
+            }
+
+.p-d
+{
+}
+
+    .p-d .col-sm-4
+    {
+        margin-bottom: 30px;
+         
+    }
+
+    .p-d figure
+    {
+       /*border: solid 1px #ddd;
+       padding:1px;*/
+       position:relative;
+       overflow:hidden;
+    }
+.p-d a:hover {
+    text-decoration: none;
+}
+        .p-d figure img
+        {
+            width:100%;
+            transition: all 0.5s ease;
+        }
+
+        .p-d figure figcaption
+        {
+            /*position: absolute;
+            bottom: 0;
+            left:0;
+            right:0;
+            z-index:10;*/
+        }
+
+.p-d figure figcaption .info-bc {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    z-index:90;
+    background-color: rgba(255,255,255,0);
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+.p-d figure figcaption .info-bc:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+            .p-d figure figcaption h2
+            {
+                font-weight: bold;
+                font-size: 18px;
+                transition: all 0.5s ease;
+                margin-top: 10px;
+            }
+
+            .p-d figure figcaption .info
+            {
+                padding-left: 10px;
+                transition: all 0.5s ease;
+                border: 1px solid #EEE;
+                border-top: none;
+                padding: 10px 20px 20px 20px;
+                overflow: hidden;
+            }
+
+            .p-d figure figcaption .info .tip
+            {
+                height: 60px;
+            }
+
+            .p-d figure figcaption .tip p
+            {
+                margin: 0;
+                line-height: 20px;
+                transition: all 0.5s ease;
+            }
+
+        .p-d figure:hover figcaption
+        {
+            /*background-color:rgba(235,156,28,0);*/
+        }
+/*
+        .p-d figure:hover figcaption .info-bc {
+            top: 100%;
+        }
+            .p-d figure:hover figcaption h2, .p-d figure:hover figcaption .tip p
+            {
+                 color:#EEE;
+            }
+*/
+             .p-d figure:hover figcaption .info
+            {
+                /*margin-left: 20px;*/
+                
+            }
+        .p-d figure:hover img
+        {
+            /*-webkit-transform: scale3d(1.2,1.2,1);
+            transform: scale3d(1.2,1.2,1);*/
+        }
