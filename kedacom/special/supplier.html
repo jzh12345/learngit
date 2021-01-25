@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+<link href="/${res}/css/base.css?v=20190423" rel="stylesheet" />
+<link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+<style type="text/css">
+
+.form-div {
+	border: 1px solid #eee;
+}
+
+
+.form-title {
+	background: #eee;
+	padding: 5px 30px;
+	color: #333;
+	margin: 0;
+}
+
+.form-group {
+	padding: 10px 30px;
+	height:92px;
+	margin-bottom:0;
+}
+
+.form-group label {
+	color: #999;
+}
+
+.form-group label .require {
+	color: #f00;
+	padding-left: 5px;
+}
+
+.form-btn {
+	margin: 20px 0;
+	text-align: center;
+}
+
+.form-btn a {
+	padding: 8px 30px;
+	font-size: 20px;
+}
+
+.form-btn a:last-child {
+	margin-left: 50px;
+}
+
+.regular-radio+label {
+	-webkit-appearance: none;
+	background-color: #fff;
+	border: 1px solid #008BCA;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0), inset 0px -15px 10px -12px
+		rgba(0, 0, 0, 0);
+	padding: 8px;
+	border-radius: 50px;
+	display: inline-block;
+	position: relative;
+}
+
+.regular-radio:checked+label:after {
+	content: ' ';
+	width: 6px;
+	height: 6px;
+	border-radius: 50px;
+	position: absolute;
+	top: 5px;
+	background: #008BCA;
+	box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0);
+	text-shadow: 0px;
+	left: 5px;
+	font-size: 6px;
+}
+
+.regular-radio:checked+label {
+	background-color: #fff;
+	color: #008BCA;
+	border: 1px solid #008bca;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0), inset 0px -15px 10px -12px
+		rgba(0, 0, 0, 0), inset 15px 10px -12px rgba(255, 255, 255, 0), inset
+		0px 0px 10px rgba(0, 0, 0, 0);
+}
+
+.regular-radio+label:active, .regular-radio:checked+label:active {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0), inset 0px 1px 3px
+		rgba(0, 0, 0, 0);
+}
+
+.text1, .text2, .text3 {
+	position: relative;
+	left: 10px;
+	font-size: 14px;
+}
+
+.file-input {
+	filter: alpha(opacity = 0);
+	-moz-opacity: 0;
+	opacity: 0;
+	position: absolute;
+}
+
+.upload input[type='text'] {
+	display: inline-block;
+	width: 60%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.upload a {
+	display: inline-block;
+	width: 20%;
+	margin-left: 10%;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+.yanzhengma input[type='text'] {
+	width: 40%;
+	display: inline-block;
+}
+
+.yanzhengma img {
+	display: inline-block;
+	with: 50%;
+	margin-left: 5%;
+}
+
+#businessPath,#agentPath{
+	display:none;
+	width:0;
+	height:0;
+}
+
+.disbled{
+	background:#eee;
+}
+.disbled:hover{
+	cursor:not-allowed;
+	color:#333;
+}
+.red{
+	border-color: #e21147;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 127, 194, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(234, 148, 188, 0.6);
+}
+label{
+	font-weight:100;
+
+}
+label.error{
+	color:red;
+	
+}
+/*横向放置的手机和竖向放置的平板之间的分辨率*/
+@media screen and (max-width:767px) {
+   .rowform-div .form-group{
+		height:40px;
+	}
+	.form-btn a:last-child {
+	margin-left:10px;
+	}
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #fff;
+}
+</style>
+<script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+<script src="/${res}/scripts/jquery.validate.js"></script> 
+<script src="/${res}/scripts/bootstrap.js"></script>
+<script src="/${res}/scripts/jquery.bxslider.js"></script>
+<script src="/${res}/scripts/jquery.form.js"></script>
+<script src="/${res}/scripts/jquery.navMenu.js"></script>
+<script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+<script src="/${res}/scripts/jquery.mnmenu.js"></script>
+<script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+<script src="/${res}/scripts/init.js"></script>
+<script src="/${res}/scripts/layer.js"></script>
+<title>供应商自荐-科达</title>
+</head>
+<body>
+<!-- TOP栏目 -->
+	[#include "../include/langmu_top.html"/]
+	<!-- 所在位置 -->
+	[#include "../include/site_local.html"/]
+<div class="container">
+		<div class="row">
+			<div class=" col-lg-9 col-md-9 detail border-right">
+				<img src="/${res}/images/gongyangshangzijian.jpg"
+					style="width: 100%;" />
+				<h1 class="rhombus2"
+					style="text-align: center; font-size: 26px; font-weight: bold;margin:30px 0;">供应商自荐平台</h1>
+				<div class="row" style="padding: 0 30px;">
+
+					<form id="supplierForm" action="">
+						<div class="row form-div">
+							<p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-title">公司状况</p>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="ch-name">中文名称<span class="require">*</span></label>
+								<input id="chName" type="text" class="form-control" name="chName"
+									placeholder="" maxlength="127"/>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="en-name">英文名称</label> <input type="text"
+									class="form-control" name="enName" placeholder="" maxlength="127" >
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="address">公司地址<span class="require">*</span></label>
+								<input type="text" class="form-control" name="address"
+									placeholder=""  maxlength="127"/>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="telephone">公司电话<span class="require">*</span></label><input type="text"
+									class="form-control" name="telephone" placeholder=""  />
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="factory-add">工厂地址</label> <input type="text"
+									class="form-control" name="factoryAdd" placeholder="" maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="website">公司网址</label> <input type="text"
+									class="form-control" name="website" placeholder="" maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="corporation">负责人<span class="require">*</span></label>
+								<input type="text" class="form-control" name="corporation"
+									placeholder="" maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="corporation-tel">负责人电话<span class="require">*</span></label>
+								<input type="text" class="form-control" name="corporationTel"
+									placeholder=""  >
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="record-date">设立登记日期<span class="require">*</span></label>
+								<input id="indate" type="text" class="form-control" name="recordDate"
+									placeholder=""   readonly="readonly">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="business-reg">营业登记编号<span class="require">*</span></label>
+								<input type="text" class="form-control notNull" name="businessReg"
+									placeholder="">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="supplier-pro">供应商性质<span class="require" >*</span></label>
+
+								<div style="height: 12px;"></div>
+								<input type="radio" id="propertise" name="supplierPro"
+									value="生产商" checked class="regular-radio" /> <label
+									for="propertise"></label><span class="text1">生产商</span> <input
+									type="radio" id="propertise1" name="supplierPro" value="代理商"
+									class="regular-radio" /> <label for="propertise1"
+									style="margin-left: 20px;"></label><span class="text2">代理商</span>
+								<input type="radio" id="propertise2" name="supplierPro"
+									value="其他" class="regular-radio" /> <label for="propertise2"
+									style="margin-left: 20px;"></label><span class="text3">其他</span>
+
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="workshop">厂房</label>
+								<div style="height: 14px;"></div>
+								<input type="radio" id="status1" name="workshop" value="自有"
+									checked class="regular-radio" /> <label for="status1"></label><span
+									class="text1">自有</span> <input type="radio" id="status0"
+									name="workshop" value="租赁" class="regular-radio" /> <label
+									for="status0" style="margin-left: 20px;"></label><span
+									class="text2">租赁</span>
+
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="amount-capital">资本额<span class="require">*</span></label>
+								<input type="text" class="form-control" name="amountCapital"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="brand">生产或代理品牌<span class="require">*</span></label>
+								<input type="text" class="form-control" name="brand" 
+									placeholder=""  maxlength="127">
+							</div>
+							
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="acreages">面积</label> <input type="text"
+									class="form-control" name="acreages" placeholder="" maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
+								<label for="relation-company">关系企业</label>
+								<input type="text" class="form-control" name="relationCompany"
+									placeholder="" maxlength="127" >
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="accoun-period">可合作帐期<span class="require">*</span></label>
+								<input type="text" class="form-control" name="accountPeriod"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+								<label for="advantage">自荐竞争优势(200个字以内)<span class="require">*</span></label>
+								<textarea type="text" class="form-control" name="advantage"
+									placeholder=""  maxlength="200"></textarea>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="direct-employees">员工人数(直接)<span
+									class="require">*</span></label> <input type="text"
+									class="form-control" name="directEmployees"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="indirect-employees">员工人数(间接)<span
+									class="require">*</span></label> <input type="text"
+									class="form-control" name="indirectEmployees"
+									placeholder=""   maxlength="127">
+							</div>
+							<p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-title">经营业绩</p>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="income-beflast">年营业额(前年)</label> 
+								<input type="text" class="form-control" name="incomeBeflast"
+									placeholder="" maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="profit-beflast">税前利润(前年)</label> <input type="text"
+									class="form-control" name="profitBeflast"
+									placeholder=""   maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="income-last">年营业额(去年)</label>
+								<input type="text" class="form-control" name="incomeLast"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="profit-last">税前利润(去年)</label>
+								<input type="text" class="form-control " name="profitLast"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="income-now">年营业额(本年预估)<span class="require">*</span></label>
+								<input type="text" class="form-control" name="incomeNow"
+									placeholder=""  maxlength="127" >
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="profit-now">税前利润(本年预估)<span class="require">*</span></label>
+								<input type="text" class="form-control" name="profitNow"
+									placeholder=""   maxlength="127">
+							</div>
+							<p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-title">产品信息</p>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="product-one">主要产品1<span class="require">*</span></label>
+								<input id="productOne" type="text" class="form-control" name="productOne"
+									placeholder=""  maxlength="127" >
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="product-one-num">对应月产能1<span class="require">*</span></label> <input type="text"
+									class="form-control" name="productOneNum" placeholder="" maxlength="127">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="product-one-rate">占营业额比例1<span class="require">*</span></label> <input type="text"
+									class="form-control" name="productOneRate"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="product-two">主要产品2</label>
+								<input type="text" class="form-control" id="productTwo" name="productTwo"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="product-two-num">对应月产能2</label> <input type="text"
+									class="form-control" name="productTwoNum" placeholder="" maxlength="127">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="product-two-rate">占营业额比例2</label> <input type="text"
+									class="form-control" name="productTwoRate"
+									placeholder=""  maxlength="127">
+							</div>
+							<p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-title">客户信息</p>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="customer-one">主要客户1<span class="require">*</span></label>
+								<input type="text" class="form-control" name="customerOne"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="customer-one-product">对应产品1<span class="require">*</span></label> <input
+									type="text" class="form-control" name="customerOneProduct"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="cunstomer-one-rate">占客户比例1<span class="require">*</span></label> <input
+									type="text" class="form-control" name="customerOneRate"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="customer-two">主要客户2</label>
+								<input type="text" class="form-control" name="customerTwo"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="customer-two-product">对应产品2</label> <input
+									type="text" class="form-control" name="customerTwoProduct"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 form-group">
+								<label for="customer-two-rate">占客户比例2</label> <input type="text"
+									class="form-control" name="customerTwoRate"
+									placeholder=""  maxlength="127">
+							</div>
+
+							<p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-title">设备及新品信息</p>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="main-device">主要设备</label> <input type="text"
+									class="form-control" name="mainDevice" placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="new-plan">新品开发计划</label> <input type="text"
+									class="form-control" name="newPlan" placeholder="" maxlength="127">
+							</div>
+							<p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-title">重要联系信息</p>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="contact-person">业务部门联系人<span class="require">*</span></label>
+								<input type="text"  class="form-control" name="contactPerson"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="leader-person">相关分管领导人员联系人</label> <input
+									type="text" class="form-control" name="leaderPerson"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="contact-postion">业务部门联系人职位<span
+									class="require">*</span></label> <input type="text"
+									class="form-control" name="contactPostion"
+									placeholder=""  maxlength="127">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="leader-position">相关分管领导职位</label> <input type="text"
+									class="form-control" name="leaderPosition"
+									placeholder=""  maxlength="127">
+							</div>
+				
+		
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="contact-tel">业务部门移动电话<span class="require">*</span></label>
+								<input type="text" class="form-control" name="contactTel"
+									placeholder="" >
+							</div>
+					                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="leader-tel">相关分管领导移动电话</label> <input type="text"
+									class="form-control mobile" name="leaderTel" placeholder="">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="contact-email">业务部门E_mail<span
+									class="require">*</span></label> <input type="text" maxlength="127"
+									class="form-control" name="contactEmail"
+									placeholder=""  >
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="leader-email">相关分管领导E_mail</label> <input
+									type="text" class="form-control email" name="leaderEmail"
+									placeholder="">
+							</div>
+			                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="contact-fixtel">业务部门固定电话<span
+									class="require">*</span></label> <input type="text"
+									class="form-control" name="contactFixtel"
+									placeholder=""  >
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="contact-fax">业务部门传真<span class="require">*</span></label>
+								<input type="text" class="form-control" name="contactFax"  id="contactFax"
+									placeholder=""  maxlength="127">
+							</div>
+							<p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-title">附件信息</p>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="business-licence">公司简介(营业执照/税务登记证/资质文件等)<span
+									class="require">*</span></label>
+								<div class="upload" id="upload1">
+									<input class="file-input" type="file" id="business" 
+										placeholder="请选择营业执照附件" onchange="handleBusiness()" > <input
+										id="businesslicence" type="text"  value=""
+										class="form-control" readonly="readonly"> <a
+										id="businessBtn" href="javascript:void(0);"
+										class="btn btn-info" onclick="uploadBusiness()">上传</a>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+								<label for="agent-card">代理证附件</label>
+								<div class="upload" id="upload2">
+									<input class="file-input" type="file" id="agent"
+										placeholder="请选择代理证附件"  onchange="handleAgent()" > <input
+										id="agentCard" type="text" 
+										class="form-control" onclick="clickAgent()" readonly="readonly" > <a
+										id="agentBtn" href="javascript:void(0);"
+										class="btn btn-info" onclick="uploadAgent()">上传</a>
+								</div>
+							</div>
+							
+						</div>
+						<div class="row form-div">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
+								<label for="zh-name">验证码</label>
+								<div class="yanzhengma">
+									<input type="text" id="captcha" class="form-control" name="captcha" placeholder="">
+									<img id="guestbookCaptcha" src="${base}/captcha.svl"
+										onclick="this.src='${base}/captcha.svl?d='+new Date()" />
+								</div>
+							</div>
+							
+						</div>
+						<div class="row form-div" style="height:0px">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+								<input type="text" id="businessPath" name="businessPath" value="">
+								<input type="text" id="agentPath" name="agentPath" value="">
+							</div>
+						</div>
+						<div class="form-btn col-lg-12 col-md-12 col-sm-12 col-xs-12 " >
+							 <input class="btn btn-info" type="submit" id="submitbtn"  value="提交" style="padding: 8px 30px;font-size: 20px;">
+							<a href="javascript:void(0);" class="btn btn-default" id="reset">重置</a>
+						</div>
+					</form>
+
+					<!-- 图片的表单   -->
+					<form id="uploadForm" method="post" enctype="multipart/form-data"
+						target="hiddenIframe"
+						style="display: none; width: 0px; height: 0px;">
+						<span id="fileContent"></span>
+						<input type="submit" onclick="uploadFormSubmit()">
+					</form>
+
+				</div>
+			</div>
+                     <div class=" col-lg-3 col-md-3 col-sm-12 col-xs-12">
+
+				<ul class="nav nav-pills nav-stacked nav-pills-stacked-example" style="display:block;">
+				
+					[@cms_channel_list parentId='338'] [#list tag_list as c] [#if c.id
+					== 339]
+					<li role="presentation" [#if c.id== 339]  class="active"[/#if]><a
+						href="${c.url}">${c.name}</a></li> [#elseif c.id == 340]
+					<li role="presentation"><a href="gyszjjs/${c.url}">${c.name}</a></li>
+					[/#if] [/#list] [/@cms_channel_list]
+				</ul>
+			
+			</div>
+		</div>
+	</div>
+<!-- 底部 -->
+	[#include "../include/bottom.html"/]
+	<script src="/${res}/scripts/date.min.js"></script>
+	<script src="/${res}/scripts/init.js"></script>
+	<script type="text/javascript">
+		var businessFile = $("#business");
+		var businesslicence = $("#businesslicence");
+		function handleBusiness() {
+			$("#submitbtn").attr("disabled","disabled");
+			var of = $("#business");
+			//修改属性
+			of.attr("id", "uploadFile");
+			of.attr("name", "uploadFile");
+			$("#fileContent").empty();
+			$("#fileContent").append(of);
+			//将文件移动至上传表单
+			var file = $("#uploadFile").val();
+			function uploadFormSubmit(){
+				var options = {
+						type : 'POST',
+						url : "${base}/uploaderSupplier.jspx",
+						complete : function(data) {
+							$("#businessPath").val(data.responseJSON.fileName);//上传成功后赋值
+							of.attr("id", "business");
+							$("#upload1").append(of);
+							layer.msg("简介文件上传成功!");
+							$("#submitbtn").removeAttr("disabled");
+						}
+					}
+					$("#uploadForm").ajaxSubmit(options);
+
+			}
+			if(document.getElementById("uploadFile").files){
+				var fileData = document.getElementById("uploadFile").files[0];
+			}
+			
+			var ext = file.substring(file.lastIndexOf('.'), file.length).toUpperCase();
+			if (ext == '.PNG' || ext == '.JPG' || ext == '.JPEG' || ext == '.GIF' || ext == '.PDF') {
+				if (fileData.size <= 4 * 1024 * 1024) {
+					businesslicence.val(businessFile.val());
+					uploadFormSubmit();
+				} else {
+					layer.msg("文件最大不能超过4M!");
+					$("#businesslicence").val("");
+					of.attr("id", "business");
+					$("#upload1").append(of);
+				}
+			} else {
+				layer.msg("只能上传图片和PDF文件");
+				$("#businesslicence").val("");
+				of.attr("id", "business");
+				
+				$("#upload1").append(of);
+				return;
+			}
+		};
+function uploadBusiness() {
+		
+			businessFile.click();
+			
+		};
+
+		//代理证
+		var agentFile = $("#agent");
+		var agentCard = $("#agentCard");
+		function handleAgent() {
+			
+			var of = $("#agent");
+			$("#fileContent").empty();
+			$("#fileContent").append(of);
+			agentCard.val(agentFile.val());
+			$("#uploadFileText").attr("value", "");
+			of.attr("id", "uploadFile");
+			of.attr("name", "uploadFile");
+			var file = $("#uploadFile").val();
+			var fileData = document.getElementById("uploadFile").files[0];
+			var ext = file.substring(file.lastIndexOf('.'), file.length).toUpperCase();
+			if (ext == '.PNG' || ext == '.JPG' || ext == '.JPEG' || ext == '.GIF' || ext == '.PDF') {
+				if (fileData.size <= 4 * 1024 * 1024) {
+					var options = {
+						type : 'POST',
+						url : "${base}/uploaderSupplier.jspx",
+						complete : function(data) {
+							$("#agentPath").val(data.responseJSON.fileName);
+							layer.msg("代理证上传成功!");
+							of.attr("id", "agent");
+							$("#upload2").append(of);
+							
+						}
+					}
+					$("#uploadForm").ajaxSubmit(options);
+					
+				} else {
+					layer.msg("文件最大不能超过4M!");
+					$("#agentCard").val("");
+					of.attr("id", "agent");
+					$("#upload2").append(of);
+				}
+
+			} else {
+				layer.msg("只能上传图片和PDF文件");
+				$("#agentCard").val("");
+				of.attr("id", "agent");
+				$("#upload2").append(of);
+				return;
+			};
+		};
+
+		function uploadAgent() {
+			agentFile.click();
+
+		};
+
+		jeDate({
+			dateCell:"#indate",
+			format:"YYYY-MM-DD"
+		})
+
+
+function isLowerIE9(){
+		var browser=navigator.appName ;
+		var b_version=navigator.appVersion ;
+		var version=b_version.split(";");
+		if(version.length >1 ){
+			var trim_Version = version[1].replace(/[ ]/g,""); 
+			if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0") 
+			{ 
+				return true;
+			} 
+			else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE7.0") 
+			{ 
+				return true;
+			} 
+			else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0") 
+			{ 
+				return true;
+			} 
+			else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE9.0") 
+			{ 
+				return true;
+			} 
+		}else{
+			return false;
+		}
+		
+	}
+  // 联系电话(手机/电话皆可)验证
+    jQuery.validator.addMethod("isPhone",function(value,element) {
+        var length = value.length;
+        var mobile = /^1(3|4|5|7|8)\d{9}$/;
+        var tel = /^(((0|4)\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/;
+        return this.optional(element) || (tel.test(value) || mobile.test(value));
+    }, "请正确填写电话");
+    jQuery.validator.addMethod("isSpecialChar", function(value, element) {  
+        var pattern = new RegExp("[`~#$^&*=|{}/?~@#￥……&*|【】+\"\\\\]");  
+        var specialStr = "";  
+        for(var i=0;i<value.length;i++){  
+             specialStr += value.substr(i, 1).replace(pattern, '');  
+        }  
+        if( specialStr == value){  
+            return true;  
+        }  
+        return false;  
+    }, "不能包含特殊字符"); 
+
+
+ $(function(){
+		 if(isLowerIE9()){
+				layer.alert("当前使用的IE浏览器版本过低，请升级您的浏览器或者更换其他浏览器!", {
+					  icon: 5,
+					  skin: 'layer-ext-moon' 
+					});
+		 }
+		 	$("#supplierForm").validate({   
+		 	
+		 		 onfocusout: function(element) { $(element).valid();},
+
+	                rules:{
+	                    chName:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    address:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    telephone:{
+	                        required:true,
+	                        isSpecialChar:true,
+	                        isPhone:true
+	                    },
+	                    website:{
+	                        url:true
+	                    },
+	                    corporation:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    corporationTel:{
+	                        required:true,
+	                        isSpecialChar:true,
+	                        isPhone:true
+	                    },
+	                    businessReg:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    amountCapital:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    brand:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    accountPeriod:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    advantage:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    directEmployees:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    indirectEmployees:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    incomeNow:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    profitNow:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    productOne:{
+	                      	required:true,
+	                      	isSpecialChar:true
+	                    },
+	                    productOneNum:{
+	                    	required:true,
+	                    	isSpecialChar:true
+	                    },
+	                    productOneRate:{
+	                    	required:true,
+	                    	isSpecialChar:true
+	                    },
+	                    customerOne:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    customerOneProduct:{
+	                    	required:true,
+	                    	isSpecialChar:true
+	                    },
+	                    customerOneRate:{
+	                    	required:true,
+	                    	isSpecialChar:true
+	                    },
+	                    contactPerson:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    contactPostion:{
+	                        required:true,
+	                        isSpecialChar:true
+	                    },
+	                    contactFixtel:{
+	                        required:true,
+	                        isPhone:true
+	                    },
+	                   
+	                    contactTel:{
+	                    	required:true,
+		                    isPhone:true
+	                    },
+	                    leaderTel:{
+	                        isPhone:true
+	                    },
+	                    contactEmail:{
+	                    	required:true,
+	                    	email:true
+	                    },
+	                    leaderEmail:{
+	                    	email:true
+	                    },
+	                    contactFax:{
+	                        required:true,
+	                        isSpecialChar:true
+      	                    },
+                             businesslicence:{
+                               required:true
+                             }
+
+	                },
+	               messages: {
+	                    chName:{
+	                        required:"请输入中文名称"
+	                    },
+	                    address:{
+	                    	required:"请输入公司地址"
+	                    },
+	                    telephone:{
+	                        required:"请输入公司电话(固话或移动电话)"
+	                    },
+	                    website:{
+	                        url:"请填写正确的网址(http://或ftp://开头)"
+	                    },
+	                    corporation:{
+	                    	required:"请输入公司负责人姓名"
+	                    },
+	                    corporationTel:{
+	                        required:"请输入公司负责人联系方式"
+	                    },
+	                    businessReg:{
+	                    	required:"请输入营业登记编号"
+	                    },
+	                    amountCapital:{
+	                    	required:"请输入资本额（万）"
+	                    },
+	                    brand:{
+	                    	required:"请输入生产或代理品牌名称 "
+	                    },
+	                    accountPeriod:{
+	                    	required:"请输入可合作账期"
+	                    },
+	                    advantage:{
+	                    	required:"请输入自荐竞争优势"
+	                    },
+	                    directEmployees:{
+	                    	required:"请输入直接员工人数"
+	                    },
+	                    indirectEmployees:{
+	                    	required:"请输入间接员工人数"
+	                    },
+	                    incomeNow:{
+	                    	required:"请输入本年预估营业额"
+	                    },
+	                    profitNow:{
+	                    	required:"请输入本年预估税前利润"
+	                    },
+	                    productOne:{
+	                    	required:"请至少输入一个主要产品的名称"
+	                    },
+	                    productOneNum:{
+	                    	required:"请输入该主要产品的对应月产能"
+	                    },
+	                    productOneRate:{
+	                    	required:"请输入该主要产品的占营业额比例"
+	                    },
+	                    customerOne:{
+	                    	required:"请至少输入一个主要客户的名称"
+	                    },	
+	                    customerOneProduct:{
+	                    	required:"请该主要客户的对应产品"
+	                    },	
+	                    customerOneRate:{
+	                    	required:"请该主要客户的占客户比例"
+	                    },	
+	                    contactPerson:{
+	                    	required:"请输入业务部门联系人姓名"
+	                    },
+	                    contactPostion:{
+	                    	required:"请输入业务部门联系人职位"
+	                    },
+	                    contactFixtel:{
+	                    	required:"请输入业务部门联系人固定电话",
+	                    	isPhone:"请填写正确电话格式"
+	                    },
+	                    contactTel:{
+	                    	required:"请输入业务部门联系人移动电话",
+	                    	isPhone:"请填写正确电话格式"
+	                    },
+	                    contactEmail:{
+	                        required:"请输入业务部门联系人邮箱",
+	                        email:"请填写正确邮箱"
+	                    },
+	                    leaderEmail:{
+	                    	email:"请填写正确邮箱"
+	                    },
+	                    contactFax:{
+	                    	required:"请输入业务部门联系人传真"
+	                    },
+                        businesslicence:{
+                            required:"营业执照未上传完成"
+                        }
+
+	               },
+	            
+			 submitHandler: function(){      
+					if($("#businessPath").val() == ""){
+						layer.alert("营业执照附件上传未完成!", {
+							  icon: 5,
+							  skin: 'layer-ext-moon' 
+							});
+						return;
+					}
+					$("#captcha").removeClass("red");
+					var captcha = $.trim($("#captcha").val().toLowerCase());
+			        if (captcha == "") {
+			        	layer.alert("验证码还没填写！", {
+							  icon: 5,
+							  skin: 'layer-ext-moon' 
+							});
+			            return;
+			        }
+					$.ajax({
+						url : '${base}/supplierSave.jspx',
+						type : 'post',
+						dataType : 'json',
+						data : $("#supplierForm").serializeArray(),
+						type : "post", //请求方式
+						success : function(data) {
+							if(!data.success && data.status == 2){
+								$("#guestbookCaptcha").click();
+								layer.alert(data.msg, {
+									  icon: 2,
+									  skin: 'layer-ext-moon' 
+									});
+								$("#captcha").val("");
+								return ;
+							}
+							if (data.success) {
+								layer.alert(data.msg, {
+									  icon: 1,
+									  skin: 'layer-ext-moon' 
+									});
+								$("#guestbookCaptcha").click();
+								$("#supplierForm").resetForm();
+							}
+						},
+						error : function(data) {
+							console.log(data)
+							layer.alert('请检查非必填字段是否正确!', {
+							  icon: 2,
+							  skin: 'layer-ext-moon' 
+							});
+							$("#guestbookCaptcha").click();
+						}
+					});
+			   }  
+			 }) 
+		  
+		   
+		   $("#reset").click(function() {
+			   window.location.reload();
+		    });
+     });
+$(function() {
+			$('#idmenu').mnmenu();
+		});
+	</script>
+
+ 
+</body>
+</html>

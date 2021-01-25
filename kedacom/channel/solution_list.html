@@ -1,0 +1,111 @@
+[#-- 解决方案列表 --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=20190424" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/${res}/images/ico/kedacom_64X64.ico" type="image/x-icon" media="screen">
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    <script src="/${res}/scripts/jquery.bxslider.js"></script>
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+ <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+
+    <script>
+        $(function () {
+Cms.siteFlow("${base}", location.href, document.referrer);
+            $("#nav-menu").navMenu();
+        });
+function init() {
+    $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+}
+    </script>
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home" onload="init();">
+    <!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]
+<!-- 栏目图start -->
+    <div>
+
+        <div class="bx-wrapper">
+            <ul id="aaa" class="subSlider">
+                 [@cms_content_list count='10'  channelId = '296' channelOption='0' orderBy='4']
+    [#list tag_list as a]
+          <li style="background-image: url(${a.titleImg!})">
+[#--
+                    <div style="">
+                       ${a.title!}
+                    </div>
+--]
+                </li>
+    [/#list]
+    [/@cms_content_list]
+            </ul>
+        </div>
+    </div>
+    
+    <!-- 栏目图end -->
+  
+  <!-- 所在位置 -->
+    [#include "../include/site_local.html"/]
+  
+  <!-- 内容开始 -->
+   <div class="container">  
+     [@cms_content_page count='9' orderBy='4' channelId='${channel.id}' titLen='20' append='...' dateFormat='yyyy-MM-dd' channelOption='1' open='1']  
+			 <div class="row solution-list2">
+			    [#list tag_pagination.list as a]  			      
+			            <div class="col-md-4 item">
+                                      <a href= "${a.url}">
+			                <figure class="effect-solution-list">
+			                    <img src="${a.titleImg!}" alt="${a.title}" />
+			                    <figcaption>
+			                        <div class="info">
+			                            <h4>${a.title}</h4>
+			                            <div class="desc">
+			                                ${a.description!}
+			                            </div>
+			                        </div>
+			                    </figcaption>
+			                    <div class="readmore"><div class="a">查看详细</div></div>
+			                </figure>
+			              </a>
+			            </div>            
+
+			       [/#list]
+			 </div>      
+       			
+       			<nav> 
+                            <ul class="pagination">
+                               [@cms_pagination sysPage='1'/] 
+		            </ul>
+                        </nav>
+
+       [/@cms_content_page]
+    </div>
+
+  <!-- 内容结束 -->
+
+   <!-- 底部 -->
+[#include "../include/bottom.html"/]        
+<script src="/${res}/scripts/init.js"></script>
+    <script>
+        $(function () {
+            $('#idmenu').mnmenu();
+        });
+    </script>
+</body>
+</html>

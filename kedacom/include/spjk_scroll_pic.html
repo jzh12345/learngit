@@ -1,0 +1,17 @@
+[#--  视频监控图片channelId = '294'    --]
+ <div>
+
+        <div class="bx-wrapper">
+            <ul id="aaa" class="subSlider">
+                 [@cms_content_list count='10'  channelId = '294' channelOption='0' orderBy='4']
+    [#list tag_list as a]
+          <li style="background-image: url(${a.titleImg!})">
+                    <div style="">
+                       ${a.title!}
+                    </div>
+                </li>
+    [/#list]
+    [/@cms_content_list] 
+            </ul>
+        </div>
+    </div>

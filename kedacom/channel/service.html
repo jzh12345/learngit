@@ -1,0 +1,370 @@
+[#-- 服务支持首页   --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=20190423" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/${res}/images/ico/kedacom_64X64.ico" type="image/x-icon" media="screen">
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    <script src="/${res}/scripts/jquery.bxslider.js"></script>
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+    <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+    <script src="/${res}/scripts/init.js"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+Cms.siteFlow("${base}", location.href, document.referrer);
+            $("#nav-menu").navMenu();
+        });
+function init() {
+    $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+}
+
+    </script>
+<style>
+    figcaption .desc {font-size:14px;overflow:hidden;height:60px;}
+ul.menu-tree {
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+ul.menu-tree li {
+    margin-left:15px;
+}
+ul.menu-tree li:after {
+    content:'';
+    display: table;
+    clear: both;
+}
+ul.menu-tree li .icon {
+    display:block;float:left;width:20px;height:23px;background-color:#FFF;cursor:pointer;
+    position: relative;
+}
+ul.menu-tree li .icon.icon-open:before, ul.menu-tree li .icon.icon-open:after,
+ul.menu-tree li .icon.icon-close:before, ul.menu-tree li .icon.icon-close:after {
+    content: ''; width: 0; height: 0; position: absolute;
+}
+ul.menu-tree li .icon.icon-open:before {
+    border-top: 10px solid #666;
+    border-top: 10px solid  #666 \9;
+    border-right: 6px solid rgba(0, 0, 0, 0);
+    border-left: 6px solid rgba(0, 0, 0, 0);
+    top: 50%; left: 0;
+    margin-top: -6px;
+    -webkit-transition: border-top-color 0.3s linear;
+    transition: border-top-color 0.3s linear;
+}
+ul.menu-tree li .icon.icon-open:hover:before {
+    border-top-color: #0068b7;
+}
+ul.menu-tree li .icon.icon-open:after {
+    border-top: 4px solid #FFF;
+    border-top: 4px solid  #FFF \9;
+    border-right: 6px solid rgba(0, 0, 0, 0);
+    border-left: 6px solid rgba(0, 0, 0, 0);
+    top: 50%; left: 0;
+    margin-top: -6px;
+}
+ul.menu-tree li .icon.icon-close:before {
+    border-left: 10px solid #666;
+    border-left: 10px solid  #666 \9;
+    border-top: 6px solid rgba(0, 0, 0, 0);
+    border-bottom: 6px solid rgba(0, 0, 0, 0);
+    top: 50%; left: 0;
+    margin-top: -6px;
+    -webkit-transition: border-left-color 0.3s linear;
+    transition: border-left-color 0.3s linear;
+}
+ul.menu-tree li .icon.icon-close:hover:before {
+    border-left-color: #0068b7;
+}
+ul.menu-tree li .icon.icon-close:after {
+    border-left: 4px solid #FFF;
+    border-left: 4px solid  #FFF \9;
+    border-top: 6px solid rgba(0, 0, 0, 0);
+    border-bottom: 6px solid rgba(0, 0, 0, 0);
+    top: 50%; left: 0;
+    margin-top: -6px;
+}
+
+ul.menu-tree li a {
+    /*float: left;*/
+    display: block;
+    padding: 3px 25px;
+    clear: none !important;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-decoration: none;
+    outline: none;
+}
+ul.menu-tree li a.selected {
+    background-color: #DDD;
+}
+ul.menu-tree li a:hover {
+    background-color: #DDD;
+}
+ul.menu-tree li ul {
+    overflow: hidden;
+    -webkit-transition: height linear 0.5s;
+    transition: all linear 0.5s;
+}
+.iconLinks a:hover {
+    text-decoration: none;
+}
+.service .item{
+margin:20px 0 
+}
+@media (min-width: 768px){
+.service .item{
+width:20% !important;
+}
+}
+@media (max-width: 767px){
+.service .item{
+
+border-bottom:solid 1px #ddd;
+}
+.service .item:last-child{
+
+border-bottom-width:0
+}
+
+.service .item{
+margin:0 
+}
+}
+</style>
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home" onload="init();">
+<!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]  
+        <div class="bx-wrapper">
+            <ul id="aaa" class="subSlider">
+                 [@cms_content_list count='10'  channelId = '298' channelOption='0' orderBy='4']
+    [#list tag_list as a]
+          <li style="background-image: url(${a.titleImg!})">
+[#--
+                    <div style="">
+                       ${a.title!}
+                    </div>
+--]
+                </li>
+    [/#list]
+    [/@cms_content_list] 
+            </ul>
+        </div>
+
+   <!-- 所在位置 -->
+    [#include "../include/site_local.html"/]
+    
+       <!--内容开始-->
+<div class="container about">
+        <div class="slogan">
+            <h3>为客户创造价值</h3>
+            <div class="describe">
+                科达始终以“客户为中心，为客户创造价值”为服务宗旨，来满足不同细分市场客户的服务需求；通过与客户建立全面合作的服务伙伴关系，不断提高和完善自己的服务。在线技术支持、软件下载、文档共享，无论您遇到任何问题，我们都将随时为您提供服务。
+            </div>
+        </div>
+    </div>
+    <div class="container service" style="margin-top:45px;margin-bottom:45px;">
+        <div class="row search-warp">
+            <div class="popover fade top" style="top: -40px; left: 30%; display: block;">
+                <div class="arrow"></div>
+                <div class="popover-content">请输入关键字</div>
+            </div>
+            <div class="col-sm-12">
+
+                <!-- /input-group -->
+                <form class="search-form" role="search" action="${base}/search.jspx"  id="searchForm">
+                    <div class="input-group">
+                        <div class="input-group-btn" id="fenlei_btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="outline:none;">分类 <span class="caret" style="border-top: 4px solid;"></span></button>
+<ul class="dropdown-menu menu-tree">
+    <li><span class="icon"></span><a href="javascript:void(0);" data-value="">分类</a></li>
+[@cms_channel_list parentId='']
+	[#list tag_list as c]
+		 <li><span class="icon icon-close"></span><a href="javascript:void(0);" data-value="${c.id}">${c.name}</a></li>
+		 [@cms_channel_list parentId='${c.id}']
+			
+		 <li>
+		        <ul style="height:0;">
+				[#list tag_list as c2]
+				<li><a href="javascript:void(0);" data-value="${c2.id}">${c2.name}</a></li>
+				[/#list]
+		        </ul>
+		 </li>
+		[/@cms_channel_list]
+		 
+	[/#list]
+[/@cms_channel_list]
+</ul>
+                        </div>
+                        <input name="q" id="keyword" type="text" class="form-control" placeholder="请输入关键字"/>
+                        <input type="hidden" name="channelId" id="channelId"/>
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-default  btn-primary"  style="outline:none;" id="sm">&nbsp;&nbsp;搜&nbsp;&nbsp;索&nbsp;&nbsp;</button>
+                        </div>
+                    </div>
+                </form>
+<script>
+    $("ul.menu-tree li .icon").on("click", click_icon);
+    $("ul.menu-tree li a").on("click", click_a);
+    $("#fenlei_btn").on("click", click_group_btn);
+    $("#sm").on("click", click_submit_btn);
+    function click_icon(e) {
+        var height = $(this).parent().next().children("ul").height();
+        if (height == 0) {
+            $(this).removeClass("icon-close").addClass("icon-open");
+            $(this).parent().next().children("ul").height("");
+        } else {
+            $(this).removeClass("icon-open").addClass("icon-close");
+            $(this).parent().next().children("ul").height(0);
+        }
+        e.stopPropagation();
+        return false;
+    }
+    function click_a(e) {
+        var value = $(this).data("value");
+        $("#fenlei_btn").data("value", value);
+        var html = $("#fenlei_btn button").html();
+        $("#fenlei_btn button").html($(this).text()+" "+html.substring(html.indexOf("<")));
+        $("#channelId").val(value);
+        $("#fenlei_btn").removeClass("open");
+        e.stopPropagation();
+        return false;
+    }
+    function click_group_btn(e) {
+        if ($(this).hasClass("open")) {
+            $(this).removeClass("open");
+        } else {
+            var value = $(this).data("value");
+            var as = $("ul.menu-tree li a");
+            as.removeClass("selected");
+            if (value) {
+                as.each(function(index, a){
+                    if ($(a).data("value") == value) {
+                        $(a).addClass("selected");
+                        return false;
+                    }
+                });
+            }
+            $(this).addClass("open");
+        }
+        e.stopPropagation();
+        return false;
+    }
+    function click_submit_btn(e) {
+        var val = $.trim($("#keyword").val());
+        if (val == "") {
+            $(".search-warp .popover").addClass("in");
+            setTimeout(function(){
+                $(".search-warp .popover").removeClass("in");
+            },1500);
+            e.preventDefault();
+            return false;
+        }
+    }
+</script>
+            </div>
+        </div>
+    </div>
+    <div class="container service">
+        <div class="row iconLinks" style="margin:15px;border-top:1px solid #DDD;border-bottom:1px solid #DDD;">
+            <div class="item col-sm-3">
+              <a href='${base}/service/819.jhtml'>
+                <figure>
+                    <img src="/${res}/images/service_item_overview.png" alt="服务概述" />
+                    <figcaption>
+                        <h2>服务概述</h2>
+                    </figcaption>
+                </figure>
+              </a>
+            </div>
+            <div class="item col-sm-3">
+              <a href='${base}/service/663.jhtml'>
+                <figure>
+                    <img src="/${res}/images/service_item_contact.png" alt="联系我们" />
+                    <figcaption>
+                        <h2>联系我们</h2>
+                    </figcaption>
+                </figure>
+              </a>
+            </div>
+            <div class="item col-sm-3">
+              <a href='${base}/service/820.jhtml'>
+                <figure>
+                    <img src="/${res}/images/service_item_complaint.png" alt="举报投诉" />
+                    <figcaption>
+                        <h2>举报投诉</h2>
+                    </figcaption>
+                </figure>
+              </a>
+            </div>
+            <div class="item col-sm-3">
+           [#--   <a href='${base}/downs/index.jhtml'>--]
+               <a href='http://www.kedacom.com/cn/downs/index.jhtml'>
+                <figure>
+                    <img src="/${res}/images/service_item_download.png" alt="下载中心" />
+                    <figcaption>
+                        <h2>下载中心</h2>
+                    </figcaption>
+                </figure>
+              </a>
+            </div>
+            <div class="item col-sm-3">
+               <a href='http://www.kedacom.com/cn/fwyzcgg/index.jhtml'>
+                <figure>
+                    <img src="/${res}/images/gg-qt.png" alt="公告" />
+                    <figcaption>
+                        <h2>公告</h2>
+                    </figcaption>
+                </figure>
+              </a>
+            </div>
+[#--
+            <div class="item  col-sm-4">
+                <figure>
+                    <img src="/${res}/images/service_item_service.png" alt="在线客服" />
+                    <figcaption>
+                        <h2>在线客服</h2>
+                        <div class="desc">在线智能客服</div>
+                        <div class="more"></div>
+                    </figcaption>
+                </figure>
+            </div>
+--]
+        </div>
+    </div>
+   <!--内容结束-->
+
+    <!-- 底部 -->
+[#include "../include/bottom.html"/]  
+
+    <script>
+        $(function () {
+            $('#idmenu').mnmenu();
+        });
+
+
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,508 @@
+[#-- 行业应用首页 --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="苏州科达科技股份有限公司是领先的视讯与安防产品及解决方案提供商，致力于以视频会议、视频监控以及丰富的视频应用解决方案帮助各类政府及企业客户提升沟通与管理效率。"> 
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=20190423" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/${res}/images/ico/kedacom_64X64.ico" type="image/x-icon" media="screen">
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    <script src="/${res}/scripts/jquery.bxslider.js"></script>
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+     <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+ <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $("#nav-menu").navMenu(); 
+Cms.siteFlow("${base}", location.href, document.referrer);           
+        });
+function init() {
+    $('#aaa').bxSlider({
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+}
+    </script>
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home" onload="init();">
+
+<!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]   
+
+
+<!-- 栏目图start -->
+    <div>
+            <ul id="aaa" class="subSlider">
+                 [@cms_content_list count='10'  channelId = '296' channelOption='0' orderBy='4']
+    [#list tag_list as a]
+          <li style="background-image: url(${a.titleImg!})">
+[#--
+                    <div style="">
+                       ${a.title!}
+                    </div>
+--]
+                </li>
+    [/#list]
+    [/@cms_content_list]
+            </ul>
+    </div>
+
+ <!-- 栏目图end--> 
+
+<!-- 所在位置 -->
+    [#include "../include/site_local.html"/]
+
+    <div class="container solution hy-solution-bottom">
+        <h4 class="baseLine" id="h_y_s">行业解决方案</h4>
+        <div class="row">
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                    <a href="${base}/gongan/index.jhtml">
+                        <img src="/${res}/images/temp/solution_gg_hover.png">
+                        <figcaption>
+                            <h5>公安</h5>
+                            <div class="desc">近20种解决方案，覆盖公安各个警种，占有率位居前列</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                    <a href="${base}/jianchayuan/index.jhtml">
+                        <img src="/${res}/images/temp/solution_jcy_hover.png">
+                        <figcaption>
+                            <h5>检察院</h5>
+                            <div class="desc">10余种解决方案，覆盖最高检、全国25个省检院及2000多个基层检察院</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                     <a href="${base}/fayuan/index.jhtml">
+                        <img src="/${res}/images/temp/solution_fy_hover.png">
+                        <figcaption>
+                                <h5>法院</h5>
+                        <div class="desc">近10种解决方案，17个省法院视频信息化建设选择科达</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+
+ <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                     <a href="${base}/jiweijianwei/index.jhtml">
+                        <img src="/${res}/images/temp/jwjw.png">
+                        <figcaption>
+                                <h5>纪委监委</h5>
+                        <div class="desc">融合大数据、人工智能、视频科技，应用于多个纪委监委部门</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+ <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                     <a href="${base}/sifahy/index.jhtml">
+                        <img src="/${res}/images/temp/sf.png">
+                        <figcaption>
+                                <h5>司法</h5>
+                        <div class="desc">产品覆盖司法部、全国15个省司法厅及多个基层司法所</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                     <a href="${base}/yingji/index.jhtml">
+                        <img src="/${res}/images/temp/solution_yingji_hover.png">
+                        <figcaption>
+                                <h5>应急</h5>
+                        <div class="desc">精准指挥、上下联动、秒级响应，以前沿科技力量为应急管理体系赋能。</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+
+        
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                    <a href="${base}/jiaoyu/index.jhtml">
+                        <img src="/${res}/images/temp/solution_jy_hover.png">
+                        <figcaption>
+                            <h5>教育</h5>
+                            <div class="desc">覆盖高校和普教，服务于300多所高校，2万多间中小学教室</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                   <a href="${base}/jiaotong/index.jhtml">
+                        <img src="/${res}/images/temp/solution_jt_hover.png">
+                        <figcaption>
+                            <h5>智能交通</h5>
+                            <div class="desc">截止目前，交付了500多个智能交通项目</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                    <a href="${base}/yiliao/index.jhtml">
+                        <img src="/${res}/images/temp/solution_yl_hover.png">
+                        <figcaption>
+                            <h5>医疗</h5>
+                            <div class="desc">情系雅安，远程医疗播种生命之花；携湘雅医院探“互联网+医疗”</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                   <a href="${base}/sifa/index.jhtml">
+                        <img src="/${res}/images/temp/solution_jg_hover.png">
+                        <figcaption>
+                            <h5>监管</h5>
+                            <div class="desc">所内所外全覆盖，外出押解防脱逃系统被公安部监所局发文推荐</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+          
+        
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                     <a href="${base}/jianzhu/index.jhtml">
+                        <img src="/${res}/images/temp/solution_jz_hover.png">
+                        <figcaption>
+                            <h5>智能建筑</h5>
+                            <div class="desc">先进的物联网技术，实现大楼内人、车、物管控</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                     <a href="${base}/other/index.jhtml">
+                        <img src="/${res}/images/temp/solution_other_hover.png">
+                        <figcaption>
+                            <h5>其他</h5>
+                            <div class="desc">在金融、能源等领域，科达正积极探索新兴行业市场</div>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+[#--
+            <div class="col-sm-3 item">
+                <figure class="effect-solu">
+                   <a href="${base}/jinrong/index.jhtml">  <img src="/${res}/images/temp/11.jpg" alt="img21" /></a>
+                    <figcaption>
+                        <h5>金融</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-2 item">
+                <figure class="effect-solu">
+                    <a href="${base}/nengyuan/index.jhtml"> <img src="/${res}/images/temp/12.jpg" alt="img21" /></a>
+                    <figcaption>
+                        <h5>能源</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-2 item">
+                <figure class="effect-solu">
+                   <a href="${base}/jdwj/index.jhtml">  <img src="/${res}/images/temp/6.jpg" alt="img21" /></a>
+                    <figcaption>
+                        <h5>军队/武警</h5>
+                    </figcaption>
+                </figure>
+            </div>
+--]
+        </div>
+    </div>
+
+    <div class="container solution">
+        <h4 class="baseLine" id="z_d_s">重点解决方案</h4>
+        <div class="row zd-solution-row">
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/gongan/662.jhtml"><img src="/${res}/images/temp/solution_pacs.jpg" alt="平安城市" /></a>
+                    <figcaption>
+                        <h5>平安城市</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/jiaoyu/695.jhtml"><img src="/${res}/images/temp/solution_zdkt.jpg" alt="专递课堂" /></a>
+                    <figcaption>
+                        <h5>专递课堂</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/gongan/612.jhtml"><img src="/${res}/images/temp/solution_ydyy.jpg" alt="移动应用" /></a>
+                    <figcaption>
+                        <h5>移动应用</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/gongan/619.jhtml"><img src="/${res}/images/temp/solution_bpzh.jpg" alt="扁平化指挥" /></a>
+                    <figcaption>
+                        <h5>扁平化指挥</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/jiaotong/688.jhtml"><img src="/${res}/images/temp/solution_znjt.jpg" alt="智能交通" /></a>
+                    <figcaption>
+                        <h5>智能交通</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/yiliao/694.jhtml"><img src="/${res}/images/temp/solution_ychz.jpg" alt="远程会诊" /></a>
+                    <figcaption>
+                        <h5>远程会诊</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/sifa/680.jhtml"><img src="/${res}/images/temp/solution_jgaf.jpg" alt="监管安防" /></a>
+                    <figcaption>
+                        <h5>监管安防</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/fayuan/675.jhtml"><img src="/${res}/images/temp/solution_kjft.jpg" alt="科技法庭" /></a>
+                    <figcaption>
+                        <h5>科技法庭</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/jianchayuan/679.jhtml"><img src="/${res}/images/temp/solution_jsjz.jpg" alt="监视居住" /></a>
+                    <figcaption>
+                        <h5>监视居住</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure class="effect-solu">
+                    <a href="${base}/jianzhu/700.jhtml"><img src="/${res}/images/temp/solution_znjz.jpg" alt="智能建筑" /></a>
+                    <figcaption>
+                        <h5>智能建筑</h5>
+                    </figcaption>
+                </figure>
+            </div>
+[#--
+            <div class="col-sm-2">
+                <figure class="effect-solu">
+                    <a href="javascript:void(0);"><img src="/${res}/images/temp/17.jpg" alt="远程接访" /></a>
+                    <figcaption>
+                        <h5>远程接访</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-2">
+                <figure class="effect-solu">
+                    <a href="javascript:void(0);"><img src="/${res}/images/temp/18.jpg" alt="远程探视" /></a>
+                    <figcaption>
+                        <h5>远程探视</h5>
+                    </figcaption>
+                </figure>
+            </div>
+             <div class="col-sm-2">
+                <figure class="effect-solu">
+                    <a href="javascript:void(0);"><img src="/${res}/images/temp/19.jpg" alt="综合安防" /></a>
+                    <figcaption>
+                        <h5>综合安防</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-2">
+                <figure class="effect-solu">
+                    <a href="javascript:void(0);"><img src="/${res}/images/temp/20.jpg" alt="img21" /></a>
+                    <figcaption>
+                        <h5>科技法庭</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-2">
+                <figure class="effect-solu">
+                    <a href="javascript:void(0);"><img src="/${res}/images/temp/21.jpg" alt="img21" /></a>
+                    <figcaption>
+                        <h5>教育录播</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-2">
+                <figure class="effect-solu">
+                    <a href="javascript:void(0);"><img src="/${res}/images/temp/23.jpg" alt="img21" /></a>
+                    <figcaption>
+                        <h5>智能门店</h5>
+                    </figcaption>
+                </figure>
+            </div>
+--]
+        </div>
+    </div>
+
+<div class="container solution">
+        <h4 class="baseLine" id="z_d_s">行业专用产品</h4>
+        <div class="row zd-solution-row">
+            <div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/4607.jhtml"><img src="/${res}/images/deep-engin.jpg" alt="深度学习服务器" /></a>
+				<figcaption>
+					<h5>深度学习服务器</h5>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/5003.jhtml"><img src="/${res}/images/jsyw-engin.jpg" alt="计算业务服务器" /></a>
+				<figcaption>
+					<h5>计算业务服务器</h5>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/5001.jhtml"><img src="/${res}/images/sjzx-engin.jpg" alt="数据中心服务器" /></a>
+				<figcaption>
+					<h5>数据中心服务器</h5>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/5002.jhtml"><img src="/${res}/images/gpu-engin.jpg" alt="GPU高性能服务器" /></a>
+				<figcaption>
+					<h5>GPU高性能服务器</h5>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/4457.jhtml"><img src="/${res}/images/so-zhencha.jpg" alt="猎鹰视频侦查系统" /></a>
+				<figcaption>
+					<h5>猎鹰视频侦查系统</h5>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/4458.jhtml"><img src="/${res}/images/so-tuxiang.jpg" alt="猎鹰图像处理系统" /></a>
+				<figcaption>
+					<h5>猎鹰图像处理系统</h5>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/4459.jhtml"><img src="/${res}/images/so-kaca.jpg" alt="视频勘察箱" /></a>
+				<figcaption>
+					<h5>视频勘察箱</h5>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/4461.jhtml"><img src="/${res}/images/so-camera.jpg" alt="单目全景摄像机" /></a>
+				<figcaption>
+					<h5>单目全景摄像机</h5>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/4462.jhtml"><img src="/${res}/images/so-jieya.jpg" alt="外出押解设备箱" /></a>
+				<figcaption>
+					<h5>外出押解设备箱</h5>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-3">
+			<figure class="effect-solu">
+				<a href="${base}/givenpro/4456.jhtml"><img src="/${res}/images/so-pad.jpg" alt="图侦平板" /></a>
+				<figcaption>
+					<h5>图侦平板</h5>
+				</figcaption>
+			</figure>
+		</div>
+
+        </div>
+    </div>
+
+[#--
+    <div class="container">
+        <h4  class="baseLine">成功案例</h4>
+        <div class="row case">
+            <div class="col-sm-6 item">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="thumbnail">
+                            <img src="/${res}/images/temp/o3.jpg" />
+
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <h3>来伊份如何用视频系统实现千店管理</h3>
+                        <div class="desc">
+                             2014年开始至今，来伊份选择科达建设门店远程督导系统，通过在各分店安装专用摄像机，实现总部对全国400多家门店的可视化远程督导管理PC、手机，网页、APP、微信，科达门店远程督导系统提供多种视频巡店方式
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 item">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="thumbnail">
+                            <img src="/${res}/images/temp/o3.jpg" />
+
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <h3>全国最大的免维护智能交通系统即将启用 | 科达新纪录</h3>
+                        <div class="desc">
+                            呼和浩特市快速路交通工程采用的近700套科达智能交通设备将在今年实施上线。由于所有卡口和电警均采用了最先进的免维护技术，因此该项目也被称为国内规模最大的免维护智能交通工程。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="viewmore"><a>浏览更多案例...</a></div>
+    </div>
+--]
+
+<!-- 底部 -->
+[#include "../include/bottom.html"/]  
+<script src="/${res}/scripts/init.js"></script>
+    <script>
+        $(function () {
+             $('#idmenu').mnmenu();
+        });
+    </script>
+</body>
+</html>

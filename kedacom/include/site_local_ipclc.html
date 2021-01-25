@@ -1,0 +1,104 @@
+<!-- 所在位置-->
+<div class="container">
+        <div class="row">
+            <div class="col-md-8 navRow">
+				<ul id="idmenu">
+                
+                    <li >
+                        <a href="${site.url!}" ><span>首页</span> </a>
+                    </li>
+						[#list content.channel.nodeList as n]
+							<li ><a  class="a"><span>${n.name}</span></a>		
+								 <ul>
+									[#if n.parent??]   <!-- 有父ID? -->
+										[@cms_channel_list parentId='${n.parent.id}']
+
+                                                                                     [#if n_index <3]                                                                                          
+                                                                                        [#list tag_list as c]
+												<li><a href="${c.url}"><span>${c.name}</span></a></li>
+											[/#list]
+                                                                                     [/#if]
+                                                                                        
+											
+										[/@cms_channel_list]
+									[#else]  <!-- 无父ID 查1级 -->
+										[@cms_channel_list parentId='']
+											[#list tag_list as c]
+												<li><a href="${c.url}"><span>${c.name}</span></a></li>
+											[/#list]
+										[/@cms_channel_list]	
+									[/#if] 
+								 </ul>
+							</li>
+							<!-- 	[#if n_has_next] > [/#if] -->
+						[/#list]  
+                </ul>
+
+            </div>
+	    <div class="col-md-4 snsRow">
+                <dl>
+                    <dd style="position:relative;">
+                        <a class="icon16 icon-sns-weichat weichat" href="javascript:showUrlQrCode();"></a>
+                        <div id="urlQrCodeWrap" style="position:absolute;top:45px;left:-50px;z-index:99;padding:20px;border:1px solid #EEE;border-radius:5px;background-color:white;display:none;">
+                            <div id="urlQrCode" style=""></div>
+                        </div>
+                    </dd>
+                    <dd>
+                        <a class="icon16 icon-sns-weibo weibo" href="javascript:showToSina('http://www.kedacom.com/r/cms/www/kedacom/images/logo_blue.png','http://www.kedacom.com');"></a>
+                    </dd>
+                    <dd>
+                        <a class="icon16 icon-sns-qq qq" href="javascript:showToZone('http://www.kedacom.com/r/cms/www/kedacom/images/logo_blue.png','http://www.kedacom.com');"></a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+<script src="${res}/scripts/qrCode/qrCode.js"></script>
+<script>
+function showToSina(picUrl,portalUrl){
+    var title = document.head.getElementsByTagName('title')[0].innerHTML;
+    var pp = encodeURI(title);
+    //var _url = encodeURIComponent(window.location.href);
+    var _url = encodeURIComponent(portalUrl);
+    var _t = encodeURI('科达，致力于以视频会议、视频监控以及丰富的视频应用解决方案帮助各类政府及企业客户提升沟通与管理效率。');
+    var _appkey = encodeURI("1849290062");//你从微薄获得的appkey
+    var _pic = encodeURI(picUrl);
+    var _u = 'http://service.weibo.com/share/share.php?url='+_url+'&appkey='+_appkey+'&pic='+_pic+'&title='+_t+'%23'+pp+'%23';
+    window.open( _u);
+}
+// 分享到 zone
+function showToZone(picUrl,portalUrl){
+    var title = document.head.getElementsByTagName('title')[0].innerHTML;
+    var _t = encodeURI(title);
+    var _url = encodeURIComponent(portalUrl);
+    var _pic = encodeURI(picUrl);
+    var _d = encodeURI('科达，致力于以视频会议、视频监控以及丰富的视频应用解决方案帮助各类政府及企业客户提升沟通与管理效率。');
+    var _u = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+_url+'&title='+_t+'&pics='+_pic+'&desc='+_d+'&summary='+_d;
+    window.open( _u);
+}
+///
+function showUrlQrCode() {
+    var url = window.location.href,
+        hasCreate = $("#urlQrCode").data("show");
+    if (hasCreate == 1) {
+        if ($("#urlQrCodeWrap").css("display") == "none") {
+            $("#urlQrCodeWrap").show();
+        } else {
+            $("#urlQrCodeWrap").hide();
+        }
+        return;
+    }
+    new QRCode(document.querySelector("#urlQrCode"), {
+		width : 96,//设置宽高
+		height : 96,
+		imgWidth: 15, //中间显示图标的宽高
+		imgHeight: 15,
+                bgColor: ['#128FFF','#035098'],
+                imgText: 'KD',
+		imgSrc: "/${res}/images/winxin_logo.png", //中间显示的图标
+		text: url //生成二维码的url
+	});
+    $("#urlQrCode").data("show", 1);
+    $("#urlQrCodeWrap").show();
+}
+</script>

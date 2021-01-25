@@ -1,0 +1,121 @@
+[#--  监控视屏首页 目前和sphy.html模板相同都属于产品 要改2个一起改   --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no"/>
+    <link href="${res}/css/base.css?v=20190424" rel="stylesheet"/>
+    <link href="${res}/css/bootstrap.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="${res}/images/ico/kedacom_64X64.ico" type="image/x-icon" media="screen">
+    <script src="${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="${res}/scripts/bootstrap.js"></script>
+    <script src="${res}/scripts/jquery.bxslider.js"></script>
+    <link href="${res}/css/pro.css" rel="stylesheet"/>
+    <script src="${res}/scripts/jquery.navMenu.js"></script>
+    <script src="${res}/scripts/jquery.mnmenu.js"></script>
+    <script src="${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+    <script src="${res}/scripts/front.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $("#nav-menu").navMenu();
+            Cms.siteFlow("${base}", location.href, document.referrer);
+        });
+
+        function init() {
+            $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+        }
+    </script>
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home" onload="init();">
+
+<!-- TOP栏目 -->
+[#include "../include/langmu_top.html"/]
+
+<!-- 栏目图start -->
+
+    <div>
+
+        <div class="bx-wrapper">
+            <ul id="aaa" class="subSlider">
+                 [@cms_content_list count='10'  channelId = '2332' channelOption='0' orderBy='4']
+    [#list tag_list as a]
+          <li style="background-image: url(${a.attr.titleImg.resUrl!})">
+[#--
+                    <div style="">
+                       ${a.title!}
+                    </div>
+--]
+          </li>
+    [/#list]
+    [/@cms_content_list] 
+            </ul>
+        </div>
+
+
+    </div>
+    
+ <!-- 栏目图start -->   
+
+<!-- 所在位置 -->
+[#include "../include/site_local.html"/]
+
+
+<!-- 栏目内容start -->
+<div class="container">
+    <div class="row  p-d">
+        [@cms_channel_list parentId='${channel.id}']
+        [#list tag_list as a]
+        <div class="col-sm-4">
+            <figure class="effect-1">
+                <h2 class="mobile-title">${a.name}</h2>
+                [#if a.attr.titleImg.resUrl??]
+                <a href="${a.url}"><img src="${a.attr.titleImg.resUrl!}"/>
+                    [#else]
+                    <a href="${a.url}"><img src="${res}/images/temp/p009.jpg"/>
+                        [/#if]
+                        <figcaption>
+                            <div class="info-bc"></div>
+                            <div class="info">
+                                <h2>${a.name}</h2>
+                                <div class="tip">
+                                    <p>${a.attr.description.value!?replace('\n','</p>
+                                    <p>')} </p>  <!-- 简述 -->
+                                </div>
+                            </div>
+                        </figcaption>
+                    </a>
+            </figure>
+        </div>
+
+        [/#list]
+        [/@cms_channel_list]
+    </div>
+</div>
+
+<!-- 栏目内容end -->
+
+
+<!-- 底部 -->
+[#include "../include/bottom.html"/]
+
+<script src="${res}/scripts/init.js"></script>
+<script>
+    $(function () {
+        $('#idmenu').mnmenu();
+    });
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+[#-- 投资者关系 首页   --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=20190423" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    <script src="/${res}/scripts/jquery.bxslider.js"></script>
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+    <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+    <script src="/${res}/scripts/videojs/v.js?r=222"></script>
+    <script>
+        $(function () {
+            $("#nav-menu").navMenu();
+        });
+function init() {
+    $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+}
+    </script>
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home" onload="init();">
+<!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]  
+
+<!-- 栏目图start -->
+    <div>
+        <div class="bx-wrapper">
+            <ul id="aaa" class="subSlider">
+               [@cms_content_list count='10'  channelId = '350' channelOption='0' orderBy='4']
+                   [#list tag_list as a]
+${a.titleImg}
+                     <li style="background-image: url(${a.titleImg!})">
+
+                     </li>
+                   [/#list]
+               [/@cms_content_list] 
+            </ul>
+        </div>
+    </div>
+<!-- 栏目图end 201709/26182629lwab.jpg -->
+
+   <!-- 所在位置 -->
+    [#include "../include/site_local.html"/]
+   
+   <!--内容开始-->
+    <div class="container about">
+        <div class="slogan">
+
+        <div class="row iconLinks" style="padding-top:20px;border-top:1px solid #DDD;">
+            <div class="item col-sm-3">
+                <figure>
+                <a href="http://www.sse.com.cn/assortment/stock/list/info/announcement/index.shtml?productId=603660" target="_blank">
+                    <img src="/${res}/images/gsgg.png " alt="公司公告"  />
+                    <figcaption>
+                         <h2>公司公告</h2>
+                    </figcaption>
+                </a>
+                </figure>
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                <a href="${base}/tzzrx/4611.jhtml">
+                    <img src="/${res}/images/tzzrx.png " alt="投资者热线"  />
+                    <figcaption>
+                         <h2>投资者热线</h2>
+                    </figcaption>
+                </a>
+                </figure>
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                <a href="http://sns.sseinfo.com/company.do?stockcode=603660" target="_blank">
+                    <img src="/${res}/images/tzzly.png " alt="投资者留言板"  />
+                    <figcaption>
+                         <h2>投资者留言板</h2>
+                    </figcaption>
+                </a>
+                </figure>
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                 <a href="http://quote.eastmoney.com/sh603660.html?from=BaiduAladdin" target="_blank">
+                    <img src="/${res}/images/gphq.png " alt="股票行情"  />
+                    <figcaption>
+                         <h2>股票行情</h2>
+                    </figcaption>
+                 </a>
+                </figure>
+            </div>
+        </div>
+        <div class="row iconLinks">
+            <div class="item col-sm-3">
+                <figure>
+                 <a href="${base}/gszl/index.jhtml">
+                    <img src="/${res}/images/gszl.png " alt="公司治理"  />
+                    <figcaption>
+                         <h2>公司治理</h2>
+                    </figcaption>
+                  </a>
+                </figure>
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                 <a href="https://visual.gildata.com/zz-report/?orgcode=f8932700-e823-4a4c-8f26-04e1cfb423ab&year=2017" target="_blank">
+                    <img src="/${res}/images/dingqibaogao.png " alt="定期报告"  />
+                    <figcaption>
+                         <h2>定期报告</h2>
+                    </figcaption>
+                 </a>
+                </figure>
+            </div>
+
+        </div>
+    </div>
+</div>
+  <div style="height:15px;"></div>
+   <!--内容结束-->
+
+<!-- 底部 -->
+[#include "../include/bottom.html"/]  
+
+<script src="/${res}/scripts/init.js"></script>
+    <script>
+        $(function () {
+            $('#idmenu').mnmenu();
+        });
+    </script>
+</body>
+</html>

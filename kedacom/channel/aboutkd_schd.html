@@ -1,0 +1,173 @@
+[#-- 关于我们 市场活动栏目   --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+<meta name="description" content="苏州科达科技股份有限公司是领先的视讯与安防产品及解决方案提供商，致力于以视频会议、视频监控以及丰富的视频应用解决方案帮助各类政府及企业客户提升沟通与管理效率。">
+<link href="/${res}/css/base.css?v=20190423" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/${res}/images/ico/kedacom_64X64.ico" type="image/x-icon" media="screen">
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    [#--<script src="/${res}/scripts/jquery.bxslider.js"></script>--]
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+ <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+<!--<script src="/${res}/scripts/word_list.js"></script>-->
+<script src="${resSys}/front.js" type="text/javascript"></script>
+    <script>
+        $(function() {
+            $("#nav-menu").navMenu();
+Cms.siteFlow("${base}", location.href, document.referrer);
+/*
+            //$("#could").jQCloud(word_list);
+            $("#could").addClass("jqcloud1").css({width:$("#could").width(),height:$("#could").height(),"max-width":270});
+            var len = word_list.length;
+            for (var i = 0; i < len; i++) {
+		$("#could").append($('<span>'+word_list[i].text+'</span>'));
+	    }
+*/
+        });
+    </script>
+<style>
+    .schd-center .proItem a h4 {
+        margin-top: 15px;
+        font-size: 16px;
+        color: #333;
+        -webkit-transition: color 0.3s;
+        transition: color 0.3s;
+    }
+    .schd-center .proItem a:hover h4 {
+        color: #0068b7;
+    }
+    .schd-center .proItem a img {
+        width: 100%;
+        -webkit-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+    }
+    .schd-center .proItem a:hover img {
+        opacity: 0.8;
+    }
+</style>
+
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home">
+<!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/] 
+
+   
+      <!-- 所在位置 -->
+    [#include "../include/site_local.html"/]
+   
+     <!-- 内容开始 -->
+    <div class="container schd-center ">
+		
+		        <div class="row">
+		            <div class="col-md-9 border-right">
+		                <div>
+		                    <h5 class="h5Title">${channel.name}</h5>
+		                </div>
+				<div class="row">
+				    <p style="padding-bottom:10px;margin:15px 15px 20px 15px;border-bottom:1px solid #DDD;font-size:18px;color:#0068b7;">近期活动</p>
+					 [@cms_content_list orderBy='4'  channelOption='0' channelId='305']   	
+						[#list tag_list as a]
+							<div class="col-sm-12 proItem">
+								<div class="row">
+									<a href="${a.url}">
+										<div class="col-sm-4">
+											<div class="thumbnail">
+												<img src="${a.titleImg!}" onerror="this.src='${base}/r/cms/www/kedacom/images/temp/kedacom.png'">
+										        </div>
+										</div>
+										<div class="col-sm-8">
+											<h4>
+											    [#if a.shortTitle?exists && a.shortTitle!=""]
+											        ${a.shortTitle!}
+											    [#else]
+											        ${a.title!}
+											    [/#if]
+											</h4>
+											<div class="desc"><p>${a.description!}</p></div>
+                                                                                        <span></span>
+										</div>
+									</a> 
+								</div>
+							</div> 
+						[/#list]
+					[/@cms_content_list]   
+				    </div>
+						
+				    <!--   往期活动-->
+                                    <div class="row">
+			                <p style="padding-bottom:10px;margin:15px 15px 20px 15px;border-bottom:1px solid #DDD;font-size:18px;color:#0068b7;">往期活动</p>
+					[@cms_content_page orderBy='4' count='5' channelOption='0' channelId='306']   
+					    [#list tag_list as a]
+				                <div class="col-sm-12 proItem">
+						    <div class="row">
+						        <a href="${a.url}">
+							    <div class="col-sm-4">
+								<div class="thumbnail">
+								    <img src="${a.titleImg!}" onerror="this.src='${base}/r/cms/www/kedacom/images/temp/o3.jpg'">
+								</div>
+							    </div>
+							    <div class="col-sm-8">
+								<h4>
+[#if a.shortTitle?exists && a.shortTitle!=""]
+     ${a.shortTitle!}
+ [#else]
+${a.title!}
+[/#if]
+</h4>
+								<div class="desc"><p>${a.description!}</p></div>
+							    </div>
+							</a> 
+						    </div>
+						</div> 
+					    [/#list]
+					        <nav style="text-align:center;"> 
+					            <ul class="pagination">[@cms_pagination sysPage='1'/]</ul>
+					        </nav>
+					[/@cms_content_page]  
+				    </div>
+			       </div>
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked nav-pills-stacked-example">                    
+						[@cms_channel_list parentId='${channel.parent.id}']
+							[#list tag_list as c]
+								<li role="presentation" [#if c.id == channel.id]  class="active" [/#if]   ><a href="${c.url}">${c.name}</a></li>
+							[/#list]
+						[/@cms_channel_list] 
+					</ul>
+				</div>
+			</div>
+		        
+[#include "../include/bottom.html"/]  
+
+  <script src="/${res}/scripts/init.js"></script>
+
+    <script>
+        $(function () {
+/*
+            $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+*/
+            $('#idmenu').mnmenu();
+        });
+
+
+    </script>
+
+
+</body>
+</html>

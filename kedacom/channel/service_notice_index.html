@@ -1,0 +1,200 @@
+[#-- 服务支持 产品公告首页   --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=sdddd" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    <script src="/${res}/scripts/jquery.bxslider.js"></script>
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+    <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+    <script src="/${res}/scripts/init.js"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+
+            $("#nav-menu").navMenu();
+
+        });
+function init() {
+    $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+}
+
+    </script>
+<style>
+    figcaption .desc {font-size:14px;overflow:hidden;height:60px;}
+ul.menu-tree {
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+ul.menu-tree li {
+    margin-left:15px;
+}
+ul.menu-tree li:after {
+    content:'';
+    display: table;
+    clear: both;
+}
+ul.menu-tree li .icon {
+    display:block;float:left;width:20px;height:23px;background-color:#FFF;cursor:pointer;
+    position: relative;
+}
+ul.menu-tree li .icon.icon-open:before, ul.menu-tree li .icon.icon-open:after,
+ul.menu-tree li .icon.icon-close:before, ul.menu-tree li .icon.icon-close:after {
+    content: ''; width: 0; height: 0; position: absolute;
+}
+ul.menu-tree li .icon.icon-open:before {
+    border-top: 10px solid #666;
+    border-top: 10px solid  #666 \9;
+    border-right: 6px solid rgba(0, 0, 0, 0);
+    border-left: 6px solid rgba(0, 0, 0, 0);
+    top: 50%; left: 0;
+    margin-top: -6px;
+    -webkit-transition: border-top-color 0.3s linear;
+    transition: border-top-color 0.3s linear;
+}
+ul.menu-tree li .icon.icon-open:hover:before {
+    border-top-color: #0068b7;
+}
+ul.menu-tree li .icon.icon-open:after {
+    border-top: 4px solid #FFF;
+    border-top: 4px solid  #FFF \9;
+    border-right: 6px solid rgba(0, 0, 0, 0);
+    border-left: 6px solid rgba(0, 0, 0, 0);
+    top: 50%; left: 0;
+    margin-top: -6px;
+}
+ul.menu-tree li .icon.icon-close:before {
+    border-left: 10px solid #666;
+    border-left: 10px solid  #666 \9;
+    border-top: 6px solid rgba(0, 0, 0, 0);
+    border-bottom: 6px solid rgba(0, 0, 0, 0);
+    top: 50%; left: 0;
+    margin-top: -6px;
+    -webkit-transition: border-left-color 0.3s linear;
+    transition: border-left-color 0.3s linear;
+}
+ul.menu-tree li .icon.icon-close:hover:before {
+    border-left-color: #0068b7;
+}
+ul.menu-tree li .icon.icon-close:after {
+    border-left: 4px solid #FFF;
+    border-left: 4px solid  #FFF \9;
+    border-top: 6px solid rgba(0, 0, 0, 0);
+    border-bottom: 6px solid rgba(0, 0, 0, 0);
+    top: 50%; left: 0;
+    margin-top: -6px;
+}
+
+ul.menu-tree li a {
+    /*float: left;*/
+    display: block;
+    padding: 3px 25px;
+    clear: none !important;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-decoration: none;
+    outline: none;
+}
+ul.menu-tree li a.selected {
+    background-color: #DDD;
+}
+ul.menu-tree li a:hover {
+    background-color: #DDD;
+}
+ul.menu-tree li ul {
+    overflow: hidden;
+    -webkit-transition: height linear 0.5s;
+    transition: all linear 0.5s;
+}
+.iconLinks a:hover {
+    text-decoration: none;
+}
+</style>
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home" onload="init();">
+<!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/] 
+
+   <!-- 所在位置 -->
+    [#include "../include/site_local.html"/]
+    
+       <!--内容开始-->
+    <div class="container about">
+            <div class="col-md-9">
+
+             [#if channel.titleImg?exists && channel.titleImg!=""]
+                 <img src="${channel.titleImg!}" style="width:100%;"/> 
+             [/#if]
+        <div class="slogan">
+            <h3>${channel.name!}</h3>
+            <div class="describe">
+                ${channel.description!}
+            </div>
+        </div>
+        <div class="row iconLinks" style="margin:15px;padding:15px 0;border-top:1px solid #DDD;border-bottom:1px solid #DDD;">
+            <div class="item col-xs-6">
+              <a href='${base}/tzxsgg/index.jhtml'>
+                <figure style="background-color: transparent;">
+                    <img src="/${res}/images/tzxsgg.png" alt="停止销售公告" />
+                    <figcaption>
+                        <h2>停止销售公告</h2>
+                    </figcaption>
+                </figure>
+              </a>
+            </div>
+            <div class="item col-xs-6">
+              <a href='${base}/tzfwgg/index.jhtml'>
+                <figure style="background-color: transparent;">
+                    <img src="/${res}/images/tzfwgg.png" alt="停止服务公告" />
+                    <figcaption>
+                        <h2>停止服务公告</h2>
+                    </figcaption>
+                </figure>
+              </a>
+            </div>
+        </div>
+            </div>
+            <div class="col-md-3">
+                <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
+                    [@cms_channel_list parentId='${channel.parent.id}']
+			[#list tag_list as c]
+			       <li role="presentation" [#if c.id == channel.id]  class="active" [/#if]><a href="${c.url}">${c.name}</a></li>
+			[/#list]
+		    [/@cms_channel_list] 
+                </ul>
+            </div>
+    </div>
+   <!--内容结束-->
+    <!-- 底部 -->
+[#include "../include/bottom.html"/]  
+
+    <script>
+        $(function () {
+            $('#idmenu').mnmenu();
+        });
+
+
+    </script>
+
+    
+</body>
+</html>

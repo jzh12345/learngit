@@ -1,0 +1,138 @@
+[#--  招贤纳士   --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=20190423" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/${res}/images/ico/kedacom_64X64.ico" type="image/x-icon" media="screen">
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    [#--<script src="/${res}/scripts/jquery.bxslider.js"></script>--]
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+    <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+    <script src="/${res}/scripts/init.js"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $("#nav-menu").navMenu();
+        });
+    </script>
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home">
+      <!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]
+<!-- 所在位置 -->
+    [#include "../include/site_local.html"/]  
+    
+    <div class="container static">
+        <div class="row">
+<!--左边部分-->
+            <div class="col-md-9 job-list job-left border-right">
+<!--图片-->
+                [#if channel.contentImg?exists && channel.contentImg!=""]
+                    <img src="${channel.contentImg!}" style="width:100%;"/> 
+                [/#if]
+<!--内容开始-->
+                <h3>校招行程安排</h3>
+                <div class="describe">
+
+12345
+                </div>
+                <div class="link-container jop-classify" style="margin-bottom:20px;">
+                    <div class="row">
+                        <div class="item col-sm-4">
+                            <figure>
+                                <a href="${base}/shjob/index.jhtml">
+                                    <img src="/${res}/images/job_item_shehui.png" alt="社会招聘" />
+                                    <figcaption>
+                                        <h2>社会招聘</h2>
+                                    </figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="item col-sm-4">
+                            <figure>
+                                <a href="${base}/xyjob/index.jhtml">
+                                    <img src="/${res}/images/job_item_xiaoyuan.png" alt="校园招聘" />
+                                    <figcaption>
+                                        <h2>校园招聘</h2>
+                                    </figcaption>
+                                </a>
+                             </figure>
+                        </div>
+                        <div class="item col-sm-4">
+                            <figure>
+                                <a href="${base}/sxsjob/index.jhtml">
+                                    <img src="/${res}/images/job_item_shixi.png" alt="实习招聘" />
+                                    <figcaption>
+                                        <h2>实习招聘</h2>
+                                    </figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--右边部分-->
+            <div class="col-md-3">
+                <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
+                    [@cms_channel_list parentId='${channel.parent.id}']
+			[#list tag_list as c]
+			       <li role="presentation" [#if c.id == channel.id]  class="active" [/#if]><a href="${c.url}">${c.name}</a></li>
+			[/#list]
+		    [/@cms_channel_list] 
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 底部 -->
+[#include "../include/bottom.html"/]  
+
+    <script>
+        $(function () {
+/*
+            $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+*/
+            $('#idmenu').mnmenu();
+        });
+
+function changeWorkplace(el) {
+            var place = $(el).text();
+            if (place == "全部") {
+                place = "";
+            }
+            $("#workplace").val(place);
+            $(el).parent().parent().children().removeClass("active");
+            $(el).parent().addClass("active");
+        }
+
+        function changeCategory(el) {
+            var place = $(el).text();
+            if (place == "全部") {
+                place = "";
+            }
+            $("#category").val(place);
+            $(el).parent().parent().children().removeClass("active");
+            $(el).parent().addClass("active");
+        }
+    </script>
+
+   
+</body>
+</html>

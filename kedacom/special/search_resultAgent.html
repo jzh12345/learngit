@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=20190423" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/${res}/images/ico/kedacom_64X64.ico" type="image/x-icon" media="screen">
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    <script src="/${res}/scripts/jquery.bxslider.js"></script>
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+    <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+    <script src="/${res}/scripts/init.js"></script>
+    <script>
+        $(function () {
+            $("#nav-menu").navMenu();
+            $("#q").on("blur", function(){
+                var valq = $.trim($(this).val());
+        	if (valq == "") {
+        	    $("#q").val("");
+        	    $("#q").addClass("q-error");
+        	} else {
+        	    $("#q").removeClass("q-error");
+        	}
+            });
+        });
+        function searchAgent(e) {
+        	e = e || window.event;
+        	var valq = $.trim($("#q").val());
+        	var captcha = $.trim($("#captcha").val());
+        	if (valq == "") {
+        	    $("#q").val("");
+        	    $("#q").addClass("q-error");
+        	    return;
+        	}
+        	$.ajax({
+        		url: 'agentResult.jspx',
+                	type: 'get',
+                	dataType: 'json',
+        	        data: { "q": valq ,"captcha":captcha },    //参数值
+        	        type: "post",   //请求方式
+        	        success:  function (data) {
+                            $("#guestbookCaptcha").prop("src","${base}/captcha.svl?d="+new Date());
+                            $("#captcha").val("");
+                	    if(data.status==0) {
+	                        $("#company_name").html(data.productName?data.productName:"--");
+	                        $("#certificate_code").html(data.productCode?data.productCode:"--");
+	                        $("#effective_date").html(data.start_date?data.start_date:"--");
+	                        $("#expiration_date").html(data.end_date?data.end_date:"--");
+	                        $("#agent_qualification").html(data.agent_qualification?data.agent_qualification:"--");
+	                        $("#contact_email").html(data.email?data.email:"--");
+	                        $("#contact_number").html(data.tel?data.tel:"--");
+	                        var attrName = [], attrPath = [], html = [];
+	                        if (data.attr_name) {
+	                            attrName = data.attr_name.split('|');
+	                            attrPath = data.attr_path.split('|');
+	                        }
+	                        $(attrName).each(function(index, name){
+	                            html.push('<a href="'+attrPath[index]+'" target="_blank">'+attrName[index]+'</a>');
+	                        });
+	                        $("#attachment_view").html(html.length==0?"--":html.join(','));
+
+	                        $("#search_result").css("display","block");
+	                        $("#no_search, #verlidate_code_error").css("display","none");
+	                    } else if(data.status==1) {
+	                        $("#verlidate_code_error").css("display","block");
+	                        $("#no_search, #search_result").css("display","none");
+	                    }else if (data.status==2) { // 查不到
+	                        $("#no_search").css("display","block");
+	                        $("#verlidate_code_error, #search_result").css("display","none");
+	                    }
+                        },
+                        error:  function (data) {
+                            $("#guestbookCaptcha").prop("src","${base}/captcha.svl?d="+new Date());
+                        }
+        	});
+                if (e.preventDefault) e.preventDefault();
+                e.returnValue = false;
+                return false;
+        }
+    </script>
+    <style>
+        #search_result {display: none;}
+        
+        .no-search {
+            display: none;
+            line-height: 80px;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+        }
+        .search-result {
+            display: block;
+        }
+        .search-result table {
+            table-layout: fixed;
+            width: 100%;
+            border-right: 1px solid #DDD;
+            border-bottom: 1px solid #DDD;
+        }
+        .search-result table tr td {
+            padding: 8px 15px;
+            border-top: 1px solid #DDD;
+            border-left: 1px solid #DDD;
+            font-size: 14px;
+            word-break: break-all;
+        }
+        .search-result table tr td a {
+            margin-left: 5px;
+            font-size: 14px;
+        }
+        .search-result table tr td a:first-child {
+            margin-left: 0;
+        }
+        .search-result table tr td:first-child {
+            width: 150px;
+            text-align: center;
+            color: #666;
+        }
+        .yzm {
+            margin-left:25px;
+        }
+    </style>
+    <title>搜索结果 - 科达，引领视讯与安防</title>
+</head>
+<body class="home">
+<!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]
+    
+   <!-- 所在位置 -->
+    [#include "../include/site_local.html"/] 
+       <!--内容开始-->
+    <div class="container news-center">
+	<div class="row">
+	    <div class="col-md-9 border-right">
+  		[@cms_channel id='119']
+		  [#if tag_bean.contentImg?exists && tag_bean.contentImg!=""]
+		  <img src="${tag_bean.contentImg!}" style="width:100%;"/> 
+		  [/#if]
+		[/@cms_channel]
+                <div class="row">
+		    <div class="col-md-12">
+		        <h1 class="head" style="border-bottom:1px solid #DDD;">合作伙伴查询</h1>
+		    </div>
+                </div>
+               
+		     
+		        <form class="form-horizontal">
+ <div class="row">
+ <div class="col-md-5">
+<div class="form-group">
+ 
+    <label for="q" class="col-sm-4 control-label">证书编码</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="q" name="q" placeholder="请输入证书编码" value="${q!}" autocomplete="off">
+    </div>
+   
+</div>
+</div>
+<div class="col-md-5">
+<div class="form-group">
+ <label for="captcha" class="col-sm-4 control-label">验证码</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="captcha" placeholder="验证码" name="captcha" vld="{required:true}" autocomplete="off">
+    </div>
+<div class="col-sm-4">
+<img id="guestbookCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"/>
+</div>
+</div>
+ 
+</div>
+<div class="col-md-2">
+<div class="form-group">
+    <div class="col-sm-7">
+      <button type="button" class="btn btn-default" onclick="searchAgent(event);">查询</button>
+    </div>
+  </div>
+</div>
+</div>
+                        </form>
+		    
+<br><br><br>
+                
+                <!-- 查询结果 -->
+		<div class="row" style="margin-top:25px;">
+		    <div class="col-md-12 no-search" id="no_search">抱歉，没有找到您要查找的代理商信息。</div>
+		    <div class="col-md-12 no-search" id="verlidate_code_error">抱歉，您输入的验证码有误。</div>
+		    <div class="col-md-12 search-result" id="search_result">
+		        <table border="0" cellpadding="0" cellspacing="0">
+		            <tr>
+		                <td>公司名称</td><td id="company_name"></td>
+		            </tr>
+		            <tr>
+		                <td>证书编码</td><td id="certificate_code"></td>
+		            </tr>
+		            <tr>
+		                <td>生效日期</td><td id="effective_date"></td>
+		            </tr>
+		            <tr>
+		                <td>失效日期</td><td id="expiration_date"></td>
+		            </tr>
+		            <tr>
+		                <td>代理类别</td><td id="agent_qualification"></td>
+		            </tr>
+		            <tr>
+		                <td>联系email</td><td id="contact_email"></td>
+		            </tr>
+		            <tr>
+		                <td>联系电话</td><td id="contact_number"></td>
+		            </tr>
+		            <tr>
+		                <td>附件查看</td><td id="attachment_view"></td>
+		            </tr>
+		        </table>
+		    </div>
+                </div>
+	    </div>
+            <div class="col-md-3">
+                <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
+                    [@cms_channel_list parentId='113']
+		    [#list tag_list as c]
+                         
+                        [#if c.id == 115]<li role="presentation"><a href="${c.url}">${c.name}</a></li>[/#if]
+                        [#if c.id == 116]<li role="presentation"><a href="${c.url}">${c.name}</a></li>[/#if]
+                        [#if c.id == 117]<li role="presentation"><a href="${c.url}" target="_blank">${c.name}</a></li>[/#if]
+                        [#if c.id == 119]<li role="presentation" class="active"><a href="${c.url}">${c.name}</a></li>[/#if]
+                        [#if c.id == 322]<li role="presentation"><a href="${c.url}" target="_blank">${c.name}</a></li>[/#if]
+                        [#if c.id == 332]<li role="presentation"><a href="${c.url}">${c.name}</a></li>[/#if]
+
+		    [/#list]
+		    [/@cms_channel_list] 
+                </ul>
+            </div>
+	</div>
+    </div>
+   <!--内容结束-->
+
+   <!-- 底部 -->
+[#include "../include/bottom.html"/]  
+<script src="/${res}/scripts/init.js"></script>
+    <script>
+        $(function () {
+            $('#idmenu').mnmenu();
+        });
+    </script>
+</body>
+</html>
+ 
+
+    

@@ -1,0 +1,130 @@
+[#-- 服务支持首页   --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=20190423" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/${res}/images/ico/kedacom_64X64.ico" type="image/x-icon" media="screen">
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    <script src="/${res}/scripts/jquery.bxslider.js"></script>
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+    <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+    <script src="/${res}/scripts/init.js"></script>
+    <script>
+        $(function () {
+
+            $("#nav-menu").navMenu();
+        });
+
+
+    </script>
+    <title>搜索结果 - 科达，引领视讯与安防</title>
+</head>
+<body class="home">
+<!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]  
+    
+    
+     
+
+   <!-- 所在位置 -->
+<div class="container">
+        <div class="row">
+            <div class="col-md-8 navRow">
+				<ul id="idmenu">
+                
+                    <li >
+                        <a href="${site.url!}" ><span>首页</span> </a>
+                    </li>
+                      <li >
+                        <span>搜索结果</span> 
+                    </li>
+						
+                </ul>
+
+            </div>
+		    <div class="col-md-4 snsRow">
+
+                <dl>
+                    <dd>
+                        
+                    </dd>
+                    <dd>
+                      
+                    </dd>
+                    <dd>
+                     
+                    </dd>
+
+                </dl>
+
+            </div>
+        </div>
+    </div>
+   <!-- 所在结束 -->        
+       <!--内容开始-->
+    <div class="container service search-result">
+ [#if q??]
+    [@cms_lucene_page q=q channelId=channelId descLen='100' append='...' count='15']
+                <div class="search_msg">
+                    您搜索的<span class="red">“${input!}”</span>， 共有 <span class="red">${tag_pagination.totalCount!} 条</span> 查询结果
+                </div>
+                [#list tag_list as s]
+                <dl class="sslist">
+                    <dt><span>[<a href="${s.ctgUrl}" target="_blank">${s.ctgName}</a>]</span>  <a href="${s.url}" title="${s.title}" target="_blank">
+             	        <!--               ${s.attr.attr_code!}&nbsp;&nbsp;${s.title?replace('${q!}', "<span style='color: red;'>${q!}</span>")}   -->
+                         [#if s.attr.attr_code?exists]
+			  ${s.attr.attr_code?replace('${q!}', "<span style='color: red;'>${q!}</span>")}
+			 [/#if]
+			  &nbsp;&nbsp;${s.title?replace('${q!}', "<span style='color: red;'>${q!}</span>")}
+                        </a>
+                    </dt>
+                    <dd class="zy">
+                        ${s.description!}
+                    </dd>
+                    <dd>  发布时间： ${s.releaseDate} </dd>
+                </dl>
+                [/#list]
+                <nav>
+                    <ul class="pagination">[@cms_pagination sysPage='1'/]</ul>
+                </nav>
+      [/@cms_lucene_page]	  
+ [/#if]
+
+        
+    </div>
+   <!--内容结束-->
+
+   <!-- 底部 -->
+[#include "../include/bottom.html"/]  
+
+    <script>
+        $(function () {
+            $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+
+            $('#idmenu').mnmenu();
+        });
+
+
+    </script>
+
+    
+</body>
+</html>
+ 
+
+    

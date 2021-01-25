@@ -1,0 +1,246 @@
+[#-- 关于 我们 首页   --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=20190423" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/${res}/images/ico/kedacom_64X64.ico" type="image/x-icon" media="screen">
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    <script src="/${res}/scripts/jquery.bxslider.js"></script>
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+    <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+    <script src="/${res}/scripts/videojs/v.js?r=222"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $("#nav-menu").navMenu();
+Cms.siteFlow("${base}", location.href, document.referrer);
+        });
+function init() {
+    $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+}
+    </script>
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home" onload="init();">
+<!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]  
+
+<!-- 栏目图start -->
+    <div>
+        <div class="bx-wrapper">
+            <ul id="aaa" class="subSlider">
+                [@cms_content_list count='10'  channelId = '299' channelOption='0' orderBy='4']
+    [#list tag_list as a]
+          <li style="background-image: url(${a.titleImg!})">
+[#--
+                    <div style="">
+                       ${a.title!}
+                    </div>
+--]
+                </li>
+    [/#list]
+    [/@cms_content_list]
+            </ul>
+        </div>
+    </div>
+<!-- 栏目图end -->
+
+   <!-- 所在位置 -->
+    [#include "../include/site_local.html"/]
+   
+   <!--内容开始-->
+    <div class="container about">
+        <div class="slogan">
+            <h3>科达，引领视讯与安防
+            </h3>
+            <div class="describe">
+            苏州科达科技股份有限公司是领先的视讯与安防产品及解决方案提供商，致力于以视频会议、视频监控以及丰富的视频应用解决方案帮助各类政府及企业客户解决可视化沟通与管理难题。公司前身科达通信成立于1995年，总部位于苏州。2012年，公司整体改制为股份有限公司。2016年12月1日，公司在上海证券交易所主板挂牌上市（股票简称：苏州科达，股票代码603660）。</div>
+        </div>
+
+        <div class="row videos">
+            <div class="item col-sm-3">
+                <figure>
+                    <img src="/${res}/images/temp/t8.jpg" alt="img21" style="width: 100%;" />
+                    <figcaption onclick="play_video(this,event);" data-url="http://asset.kedacom.com/video/brand/2018kedacomblue.mp4 |http://asset.kedacom.com/video/brand/2018kedacomblue.webm ">
+                        <div></div>
+                    </figcaption>
+                    <span class="video-title">让视界爱上这抹蓝</span>
+                </figure>
+
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                    <img src="/${res}/images/temp/t1.jpg" alt="img21" style="width: 100%;" />
+                    <figcaption onclick="play_video(this,event);" data-url="http://asset.kedacom.com/video/brand/2017kedacompartner.mp4|http://asset.kedacom.com/video/brand/2017kedacompartner.webm">
+                        <div></div>
+                    </figcaption>
+                    <span class="video-title">聚焦客户价值</span>
+                </figure>
+
+            </div>
+            <div class="item  col-sm-3">
+                <figure>
+                    <img src="/${res}/images/temp/t2.jpg" alt="img21" style="width: 100%;" />
+                    <figcaption onclick="play_video(this,event);" data-url="http://asset.kedacom.com/video/product/5.0-cloud-conferencebeta1.mp4|http://asset.kedacom.com/video/product/5.0-cloud-conference-R-R-R.webm">
+                        <div></div>
+                    </figcaption>
+                    <span class="video-title">科达5.0云视讯</span>
+                </figure>
+            </div>
+            <div class="item  col-sm-3">
+                <figure>
+                    <img src="/${res}/images/temp/t3.jpg" alt="img21" style="width: 100%;" />
+                    <figcaption onclick="play_video(this,event);" data-url="http://asset.kedacom.com/video/mp4/2016kedacomA.mp4|http://asset.kedacom.com/video/webm/2016kedacomA.webm">
+                        <div></div>
+                    </figcaption>
+                    <span class="video-title">大数据的魔法</span>
+                </figure>
+            </div>
+
+            
+        </div>
+<div style="height: 10px"></div>
+<div class="row videos">
+            <div class="item  col-sm-3" style="border:1px solid #ddd">
+                <figure>
+                    <img src="/${res}/images/temp/t4.jpg" alt="img21" style="width: 100%;" />
+                    <figcaption onclick="play_video(this,event);" data-url="http://asset.kedacom.com/video/brand/bigdata.mp4|http://asset.kedacom.com/video/brand/bigdata.webm">
+                        <div></div>
+                    </figcaption>
+                    <span class="video-title">科达安防大数据平台</span>
+                </figure>
+            </div>
+            <div class="item  col-sm-3">
+                <figure>
+                    <img src="/${res}/images/temp/t5.jpg" alt="img21" style="width: 100%;" />
+                    <figcaption onclick="play_video(this,event);" data-url="http://asset.kedacom.com/video/brand/NexVision.mp4|http://asset.kedacom.com/video/brand/NexVision.webm ">
+                        <div></div>
+                    </figcaption>
+                    <span class="video-title">科达NexVision网呈</span>
+                </figure>
+            </div>
+            <div class="item  col-sm-3">
+                <figure>
+                    <img src="/${res}/images/temp/t6.jpg" alt="img21" style="width: 100%;" />
+                    <figcaption onclick="play_video(this,event);" data-url="http://asset.kedacom.com/video/brand/2015kedacom.mp4|http://asset.kedacom.com/video/brand/2015kedacom.webm">
+                        <div></div>
+                    </figcaption>
+                    <span class="video-title">走进机器识图时代</span>
+                </figure>
+            </div>
+            <div class="item  col-sm-3" style="border:1px solid #ddd">
+                <figure>
+                    <img src="/${res}/images/temp/t7.jpg" alt="img21" style="width: 100%;" />
+                    <figcaption onclick="play_video(this,event);" data-url="http://asset.kedacom.com/video/brand/2015kedacomX.mp4|http://asset.kedacom.com/video/brand/2015kedacomx.webm">
+                        <div></div>
+                    </figcaption>
+                    <span class="video-title">感知视界科达廿年</span>
+                </figure>
+            </div>
+</div>
+        <div class="row iconLinks" style="padding-top:20px;border-top:1px solid #DDD;">
+            <div class="item col-sm-3">
+                <figure>
+                <a href="648.jhtml">
+                    <img src="/${res}/images/about_item_kd.png " alt="公司概况"  />
+                    <figcaption>
+                         <h2>公司概况</h2>
+                    </figcaption>
+                </a>
+                </figure>
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                <a href="${base}/yjsm/4646.jhtml">
+                    <img src="/${res}/images/about_item_jysm.png " alt="愿景使命"  />
+                    <figcaption>
+                         <h2>愿景使命</h2>
+                    </figcaption>
+                </a>
+                </figure>
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                <a href="649.jhtml">
+                    <img src="/${res}/images/about_item_event.png " alt="科达大事记"  />
+                    <figcaption>
+                         <h2>科达大事记</h2>
+                    </figcaption>
+                </a>
+                </figure>
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                <a href="650.jhtml">
+                    <img src="/${res}/images/about_item_honor.png " alt="科达荣誉"  />
+                    <figcaption>
+                         <h2>科达荣誉</h2>
+                    </figcaption>
+                </a>
+                </figure>
+            </div>
+            
+        </div>
+        <div class="row iconLinks">
+           <div class="item col-sm-3">
+                <figure>
+                  <a href="${base}/newskd/index.jhtml">
+                    <img src="/${res}/images/about_item_news.png " alt="新闻中心"  />
+                    <figcaption>
+                         <h2>新闻中心</h2>
+                    </figcaption>
+                  </a>
+                </figure>
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                 <a href="${base}/schd/index.jhtml">
+                    <img src="/${res}/images/about_item_market.png " alt="市场活动"  />
+                    <figcaption>
+                         <h2>市场活动</h2>
+                    </figcaption>
+                 </a>
+                </figure>
+            </div>
+            <div class="item col-sm-3">
+                <figure>
+                 <a href="${base}/kdjob/index.jhtml">
+                    <img src="/${res}/images/about_item_hr.png " alt="加入科达"  />
+                    <figcaption>
+                         <h2>加入科达</h2>
+                    </figcaption>
+                 </a>
+                </figure>
+            </div>
+
+        </div>
+    </div>
+  <div style="height:15px;"></div>
+   <!--内容结束-->
+
+<!-- 底部 -->
+[#include "../include/bottom.html"/]  
+
+<script src="/${res}/scripts/init.js"></script>
+    <script>
+        $(function () {
+            $('#idmenu').mnmenu();
+        });
+    </script>
+</body>
+</html>

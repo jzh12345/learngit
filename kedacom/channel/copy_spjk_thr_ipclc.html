@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+<meta name="description" content="苏州科达科技股份有限公司是领先的视讯与安防产品及解决方案提供商，致力于以视频会议、视频监控以及丰富的视频应用解决方案帮助各类政府及企业客户提升沟通与管理效率。">   
+<link href="/${res}/css/base.css?v=20190424" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    <script src="/${res}/scripts/jquery.bxslider.js"></script>
+   
+      <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+   <script>
+        $(function () {
+
+            $("#nav-menu").navMenu();
+        });
+function init() {
+    $('#aaa').bxSlider({
+
+                displaySlideQty: 1,//显示li的个数
+                moveSlideQty: 1,//移动li的个数  
+                captions: true,//自动控制
+                auto: true,
+                controls: false//隐藏左右按钮
+            });
+}
+    </script>
+    <style>
+        .dropNav div a:hover
+        {
+        }
+    </style>
+    <title></title>
+</head>
+<body class="home" onload="init();">
+
+<!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]
+
+
+<!-- 栏目图start -->
+
+    <div>
+
+        <div class="bx-wrapper">
+            <ul id="aaa" class="subSlider">
+                <li style="background-image: url(/${res}/images/temp/01.jpg)">
+                    <div style="">
+                        sdd
+                    </div>
+                </li>
+                <li style="background-image: url(/${res}/images/temp/02.jpg)">
+                    <div>
+                        asdfasdfsadf
+                    </div>
+
+                </li>
+                <li style="background-image: url(/${res}/images/temp/03.jpg)">
+                    <div>asdfasdfsadf</div>
+                </li>
+                <li style="background-image: url(/${res}/images/temp/04.jpg)">
+                    <div>
+                        asdfasdfsadf
+                            
+                            <br />
+                        fasdfsad\
+                            
+                            fasdfsad
+                        <br />
+                        fasdfsad
+                    </div>
+                </li>
+                <li style="background-image: url(/${res}/images/temp/05.jpg)">
+                    <div>asdfasdfsadf</div>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+    
+ <!-- 栏目图start -->   
+    
+    
+
+<!-- 所在位置 -->
+    [#include "../include/site_local.html"/]
+
+
+<!-- 栏目内容start -->
+
+<div class="container ">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+       
+  
+[@cms_channel_list parentId='${channel.id}']
+
+ [#list tag_list as c]
+           <li role="presentation"  [#if c_index== 0] class="active" [/#if] ><a href="#home${c.id}" aria-controls="home${c.id}" role="tab" data-toggle="tab">${c.name}</a></li>
+ [/#list]   
+[/@cms_channel_list]  
+
+        </ul>
+
+        <!-- 页签内容START -->
+         <div class="tab-content proGrid">
+			
+                 [@cms_channel_list parentId='${channel.id}']
+                     [#if tag_list?size>0]
+                             <!--有4级 IPC,LC  循环4级查内容 -->
+			 [#list tag_list as c]
+			      <div role="tabpanel" [#if c_index== 0]class="tab-pane pro-pane active" [#else]  class="tab-pane pro-pane" [/#if]     id="home${c.id}" >
+			                <div class="row">
+			                 
+			 
+					          [@cms_content_list  titLen='15' orderBy='0' channelOption='0' channelId='${c.id}']
+					             	[#list tag_list as a]
+					
+										<div class="col-sm-6 proItem">
+					                        <div class="row">
+					                            <div class="col-sm-3">
+					                                <div class="thumbnail">
+					                                    <img src="${a.titleImg!}" onerror="this.src='/${res}/images/temp/o3.jpg'" />
+					
+					                                </div>
+					                            </div>
+					                            <div class="col-sm-9">
+					                                <h3>${a.title}</h3>
+					                                <div class="desc">
+                                                                                 <p>${a.description!?replace('\n','</p><p>')} </p>  <!-- 简述 -->
+                                                                         </div>
+					                            </div>
+					                        </div>
+					                    </div> 
+					            	[/#list]
+					           [/@cms_content_list]
+			       			</div>
+			       </div>
+			 [/#list]   
+
+                     [#else]
+                               <!--没有有4级，查询当前栏目的内容 -->
+                               <div role="tabpanel" class="tab-pane pro-pane active"  id="home${channel.id}" >
+			                <div class="row">
+			                 
+			 
+					          [@cms_content_list  titLen='15' orderBy='0' channelOption='0' channelId='${channel.id}']
+					             	[#list tag_list as a]
+					
+										<div class="col-sm-6 proItem">
+					                        <div class="row">
+					                            <div class="col-sm-3">
+					                                <div class="thumbnail">
+					                                    <img src="${a.titleImg!}" onerror="this.src='/${res}/images/temp/o3.jpg'" />
+					
+					                                </div>
+					                            </div>
+					                            <div class="col-sm-9">
+					                                <h3>${a.title}</h3>
+					                                <div class="desc">
+                                                                                 <p>${a.description!?replace('\n','</p><p>')} </p>  <!-- 简述 -->
+                                                                         </div>
+					                            </div>
+					                        </div>
+					                    </div> 
+					            	[/#list]
+					           [/@cms_content_list]
+			       			</div>
+			        </div>
+                     [/#if]
+
+		[/@cms_channel_list]  
+        </div>  
+ <!-- 页签内容START -->
+
+
+<!-- 栏目内容end -->
+
+
+         
+ 
+<!-- 底部 -->
+[#include "../include/bottom.html"/]         
+     
+
+      <script>
+        $(function () {
+
+             $('#idmenu').mnmenu();
+        });
+
+
+    </script>
+
+</body>
+</html>

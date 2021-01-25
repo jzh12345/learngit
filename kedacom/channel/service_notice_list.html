@@ -1,0 +1,191 @@
+[#-- 服务支持--产品公告   --]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <link href="/${res}/css/base.css?v=sdddd" rel="stylesheet" />
+    <link href="/${res}/css/bootstrap.css" rel="stylesheet" />
+    <script src="/${res}/scripts/jquery-1.12.1.min.js"></script>
+    <script src="/${res}/scripts/bootstrap.js"></script>
+    [#--<script src="/${res}/scripts/jquery.bxslider.js"></script>--]
+
+    <script src="/${res}/scripts/jquery.navMenu.js"></script>
+    <script src="/${res}/scripts/jqcloud-1.0.4.js"></script>
+    <script src="/${res}/scripts/jquery.mnmenu.js"></script>
+ <script src="/${res}/scripts/jquery-accessibleMegaMenu.js"></script>
+<!--<script src="/${res}/scripts/word_list.js"></script>-->
+    <script>
+        $(function() {
+            $("#nav-menu").navMenu();
+[#--
+            //$("#could").jQCloud(word_list);
+            $("#could").addClass("jqcloud1").css({width:$("#could").width(),height:$("#could").height(),"max-width":270});
+            var len = word_list.length;
+            for (var i = 0; i < len; i++) {
+		$("#could").append($('<span>'+word_list[i].text+'</span>'));
+	    }
+--]
+        });
+    </script>
+    <style>
+        .tab-pane ul.pagination li a,.tab-pane ul.pagination li span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            font-size: 12px;
+        }
+        .tab-pane ul.pagination li span{
+            
+            margin-right: 0;
+            margin-top: 0;
+        }
+    </style>
+    <title>${channel.name!} - 科达，引领视讯与安防</title>
+</head>
+<body class="home">
+    <!-- TOP栏目 -->
+    [#include "../include/langmu_top.html"/]
+    <!-- 所在位置 -->
+    [#include "../include/site_local.html"/]
+
+    <!-- 内容开始 -->
+    <div class="container news-center ">
+        <!-- 页签内容START -->
+        <div class="tab-content proGrid">
+[#if channel.id== 450]
+            <div role="tabpanel" class="tab-pane pro-pane active" id="home450">
+                [@cms_content_page orderBy='4' count='10' channelOption='0' channelId='452,453,454,455']
+                <div class="row">
+                    <div class="col-md-9 border-right">
+                        [#if channel.contentImg?exists && channel.contentImg!=""]
+                        <img src="${channel.contentImg!}" style="width:100%;" />
+                        [/#if]
+                        <div>
+                            <h1 class="head">${channel.name}</h1>
+                        </div>
+                        <dl class="letter-spacing">
+
+                            [#if channel.txt?exists && channel.txt!=""]
+                            ${channel.txt}
+                            [/#if]
+                            [#list tag_list as a]
+                            <dd class="text-eclipse">
+<div><a href='${a.url}' style="font-size:14px;">${a.title} </a></div>
+<p style="color:#999">发布时间:${a.releaseDate?string("yyyy-MM-dd")}&nbsp;<span>|</span>&nbsp;阅读次数:${a.views}</p>
+                            </dd>
+                            [/#list]
+                        </dl>
+
+                        <nav>
+                            <ul class="pagination">
+                                [@cms_pagination sysPage='1'/]
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
+                            [@cms_channel_list parentId='450']
+                            [#list tag_list as c]
+                            <li role="presentation" [#if c.id==channel.id] class="active" [/#if]> <a href="${c.url}">
+                                ${c.name}</a></li>
+                            [/#list]
+                            [/@cms_channel_list]
+                        </ul>
+                    </div>
+                </div>
+                [/@cms_content_page]
+
+            </div>
+[/#if]
+
+[#if channel.id== 451]
+            <div role="tabpanel" class="tab-pane pro-pane active" id="home451">
+                [@cms_content_page orderBy='4' count='10' channelOption='0' channelId='456,457,458,459']
+                <div class="row">
+                    <div class="col-md-9 border-right">
+                        [#if channel.contentImg?exists && channel.contentImg!=""]
+                        <img src="${channel.contentImg!}" style="width:100%;" />
+                        [/#if]
+                        <div>
+                            <h1 class="head">${channel.name}</h1>
+                        </div>
+                        <dl class="letter-spacing">
+
+                            [#if channel.txt?exists && channel.txt!=""]
+                            ${channel.txt}
+                            [/#if]
+                            [#list tag_list as a]
+                            <dd class="text-eclipse">
+                                <div><a href='${a.url}' style="font-size:14px;">${a.title} </a></div>
+<p style="color:#999">发布时间:${a.releaseDate?string("yyyy-MM-dd")}&nbsp;<span>|</span>&nbsp;阅读次数:${a.views}</p>
+                            </dd>
+                            [/#list]
+                        </dl>
+
+                        <nav>
+                            <ul class="pagination">
+                                [@cms_pagination sysPage='1'/]
+                            </ul>
+                        </nav>
+                    </div>                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
+[#if channel.id== 450]
+                            [@cms_channel_list parentId='450']
+                            [#list tag_list as c]
+                            <li role="presentation" [#if c.id==channel.id] class="active" [/#if]> <a href="${c.url}">
+                                ${c.name}</a></li>
+                            [/#list]
+                            [/@cms_channel_list]
+            [/#if]
+[#if channel.id== 451]
+                            [@cms_channel_list parentId='451']
+                            [#list tag_list as c]
+                            <li role="presentation" [#if c.id==channel.id] class="active" [/#if]> <a href="${c.url}">
+                                ${c.name}</a></li>
+                            [/#list]
+                            [/@cms_channel_list]
+            [/#if]
+                        </ul>
+                    </div>
+                </div>
+                [/@cms_content_page]
+
+            </div>
+            [/#if]
+        </div>
+        </div>
+        <!-- 内容结束 -->
+
+        <!-- 底部 -->
+        [#include "../include/bottom.html"/]
+
+        <script src="/${res}/scripts/init.js"></script>
+
+        <script>
+            $(function () {
+                /*
+                            $('#aaa').bxSlider({
+
+                                displaySlideQty: 1,//显示li的个数
+                                moveSlideQty: 1,//移动li的个数  
+                                captions: true,//自动控制
+                                auto: true,
+                                controls: false//隐藏左右按钮
+                            });
+                */
+                $('#idmenu').mnmenu();
+            });
+        </script>
+
+
+</body>
+</html>
